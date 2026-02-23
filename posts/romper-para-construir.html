@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Eugenio Cruz">
+    <title>Romper para construir - Eugenio Cruz</title>
+    <link rel="icon" href="../Orange_Bird.png" type="image/png">
+    <style>
+        :root {
+            --color-bg: #1a1a1a;
+            --color-text: #fff8f0;
+            --color-text-muted: #c4a77d;
+            --color-accent: #ff6b35;
+            --color-accent-light: #ffa366;
+            --color-hover: #ffcc99;
+            --font-family: Arial, sans-serif;
+            --max-width: 650px;
+            --space-sm: 0.5rem;
+            --space-md: 1rem;
+            --space-lg: 2rem;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: var(--font-family);
+            color: var(--color-text);
+        }
+
+        body {
+            background-color: var(--color-bg);
+            min-height: 100vh;
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: var(--space-lg);
+            line-height: 1.8;
+        }
+
+        .back {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--color-accent);
+            text-decoration: none;
+            font-size: 0.9rem;
+            margin-bottom: var(--space-lg);
+            transition: color 0.2s;
+        }
+
+        .back:hover {
+            color: var(--color-hover);
+        }
+
+        .back svg {
+            width: 16px;
+            height: 16px;
+            fill: currentColor;
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            margin-bottom: var(--space-sm);
+            color: var(--color-accent);
+        }
+
+        .date {
+            color: var(--color-text-muted);
+            font-size: 0.9rem;
+            margin-bottom: var(--space-lg);
+        }
+
+        .intro {
+            font-style: italic;
+            color: var(--color-text-muted);
+            margin-bottom: var(--space-lg);
+            padding: var(--space-md);
+            border-left: 3px solid var(--color-accent);
+            background: rgba(255, 107, 53, 0.05);
+        }
+
+        .post-content {
+            margin-top: var(--space-lg);
+        }
+
+        .section {
+            margin-bottom: var(--space-lg);
+        }
+
+        .section-title {
+            color: var(--color-accent);
+            font-size: 1.3rem;
+            margin-bottom: var(--space-sm);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-title::before {
+            content: "•";
+            font-size: 1.5rem;
+        }
+
+        .section p {
+            margin-bottom: var(--space-sm);
+            font-size: 1.05rem;
+        }
+
+        .highlight {
+            color: var(--color-accent-light);
+            font-weight: bold;
+        }
+
+        .highlight-box {
+            background: rgba(255, 107, 53, 0.1);
+            border-left: 3px solid var(--color-accent);
+            padding: var(--space-md);
+            margin: var(--space-lg) 0;
+            border-radius: 4px;
+        }
+
+        .drawing {
+            margin: var(--space-lg) 0;
+            text-align: center;
+            padding: var(--space-lg);
+            background: rgba(255, 107, 53, 0.05);
+            border-radius: 8px;
+            border: 1px solid rgba(255, 107, 53, 0.2);
+        }
+
+        .drawing-caption {
+            font-size: 0.85rem;
+            color: var(--color-text-muted);
+            font-style: italic;
+            margin-top: var(--space-sm);
+        }
+
+        .separator {
+            text-align: center;
+            margin: var(--space-lg) 0;
+            color: var(--color-accent);
+            font-size: 1.5rem;
+            letter-spacing: 12px;
+        }
+
+        .signature {
+            margin-top: var(--space-lg);
+            padding-top: var(--space-lg);
+            border-top: 1px solid rgba(255, 107, 53, 0.2);
+            text-align: center;
+        }
+
+        /* Animation section */
+        .animation-container {
+            margin: var(--space-lg) 0;
+            text-align: center;
+            position: relative;
+        }
+
+        .animation-container canvas {
+            border-radius: 8px;
+            cursor: crosshair;
+            max-width: 100%;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .animation-hint {
+            font-size: 0.75rem;
+            color: #555;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            margin-top: var(--space-sm);
+            text-align: center;
+        }
+
+        .lang-selector {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            gap: 8px;
+            z-index: 100;
+        }
+
+        .lang-btn {
+            background: rgba(255, 107, 53, 0.1);
+            border: 1px solid var(--color-accent);
+            color: var(--color-accent);
+            padding: 6px 12px;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 0.85rem;
+            font-family: var(--font-family);
+        }
+
+        .lang-btn:hover,
+        .lang-btn.active {
+            background: var(--color-accent);
+            color: var(--color-bg);
+        }
+
+        #theme-toggle {
+            background: rgba(255, 107, 53, 0.1);
+            border: 1px solid var(--color-accent);
+            color: var(--color-accent);
+            padding: 6px 12px;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 1.2rem;
+            font-family: var(--font-family);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #theme-toggle:hover {
+            background: var(--color-accent);
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="lang-selector">
+        <button id="theme-toggle" title="Cambiar tema">🌙</button>
+        <button class="lang-btn active" data-lang="en">EN</button>
+        <button class="lang-btn" data-lang="es">ES</button>
+        <button class="lang-btn" data-lang="fr">FR</button>
+    </div>
+
+    <a href="../blog.html" class="back">
+        <svg viewBox="0 0 448 512"><path d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.2 288 416 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-306.7 0L214.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg>
+        Volver
+    </a>
+
+    <h1>Romper para construir</h1>
+    <p class="date">Febrero 2026</p>
+
+    <div class="intro">
+        A veces pienso que le tenemos mucho miedo a rompernos. Nos aferramos a lo que somos como si fuéramos una pieza de museo que no se puede tocar. Pero la verdad es que todo lo que crece, primero se quiebra.
+    </div>
+
+    <div class="post-content">
+        <div class="section">
+            <h2 class="section-title">Los músculos saben</h2>
+            <p>Cada vez que levantamos algo pesado, las fibras se desgarran. Literalmente se rompen. Y duele.</p>
+            <p>Pero el cuerpo no se rinde: <span class="highlight">reconstruye cada fibra más fuerte que antes</span>. No a pesar del daño, sino gracias a él.</p>
+            <p>El dolor no es el enemigo. El dolor es la señal de que algo nuevo está naciendo.</p>
+        </div>
+
+        <div class="drawing">
+            <svg width="300" height="100" style="margin: 0 auto; display: block;">
+                <!-- Fibra rota y reconstruida -->
+                <line x1="30" y1="50" x2="110" y2="50" stroke="var(--color-accent)" stroke-width="2" opacity="0.4"/>
+                <line x1="120" y1="45" x2="125" y2="55" stroke="var(--color-accent)" stroke-width="2" opacity="0.6"/>
+                <line x1="130" y1="55" x2="135" y2="45" stroke="var(--color-accent)" stroke-width="2" opacity="0.6"/>
+                <line x1="145" y1="50" x2="270" y2="50" stroke="var(--color-accent)" stroke-width="3"/>
+            </svg>
+            <div class="drawing-caption">la fibra que se rompe vuelve más gruesa</div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">La vida lo sabe hace millones de años</h2>
+            <p>La evolución no es un camino recto. Es una sucesión interminable de errores, mutaciones y fracasos que, de vez en cuando, encuentran algo mejor.</p>
+            <p><span class="highlight">La vida muere para evolucionar</span>. Cada especie que se extinguió le hizo espacio a otra que no existía. Cada célula que falla, abre camino a una que funciona distinto.</p>
+            <p>No hay evolución sin destrucción. No hay mariposa sin oruga que deja de existir.</p>
+        </div>
+
+        <div class="drawing">
+            <svg width="300" height="120" style="margin: 0 auto; display: block;">
+                <!-- Ciclo: semilla -> brote -> flor -> semilla -->
+                <circle cx="50" cy="60" r="6" fill="var(--color-accent)" opacity="0.4"/>
+                <path d="M 70 60 L 100 60" stroke="var(--color-accent)" stroke-width="1" stroke-dasharray="3,3"/>
+                <line x1="120" y1="60" x2="120" y2="30" stroke="var(--color-accent)" stroke-width="2" opacity="0.6"/>
+                <circle cx="120" cy="25" r="4" fill="none" stroke="var(--color-accent)" stroke-width="1.5" opacity="0.6"/>
+                <path d="M 140 60 L 170 60" stroke="var(--color-accent)" stroke-width="1" stroke-dasharray="3,3"/>
+                <circle cx="195" cy="40" r="15" fill="none" stroke="var(--color-accent)" stroke-width="2"/>
+                <circle cx="195" cy="40" r="5" fill="var(--color-accent)"/>
+                <path d="M 215 55 L 240 60" stroke="var(--color-accent)" stroke-width="1" stroke-dasharray="3,3"/>
+                <circle cx="255" cy="60" r="6" fill="var(--color-accent)"/>
+            </svg>
+            <div class="drawing-caption">todo vuelve a empezar, pero distinto</div>
+        </div>
+
+        <div class="separator">~ ~ ~</div>
+
+        <div class="section">
+            <h2 class="section-title">No somos estáticos</h2>
+            <p>A veces nos miramos al espejo y pensamos que lo que vemos es lo que somos. Fijo. Permanente.</p>
+            <p>Pero no lo somos. <span class="highlight">Cada siete años, casi todas las células de tu cuerpo han sido reemplazadas</span>. Literalmente no eres la misma persona que eras.</p>
+            <p>Y está bien. Porque lo que no se mueve, se estanca. Y lo que se estanca, muere.</p>
+        </div>
+
+        <div class="highlight-box">
+            <p style="margin: 0; text-align: center; font-size: 1.1rem;">
+                Un río que deja de fluir se convierte en pantano.<br>
+                Un músculo que deja de moverse se atrofia.<br>
+                <strong>Una persona que deja de cambiar deja de vivir.</strong>
+            </p>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">El cambio está en uno</h2>
+            <p>Nadie va a venir a romperte para que crezcas. Eso es cosa tuya.</p>
+            <p>A veces es soltar una creencia que ya no sirve. A veces es dejar ir a alguien. A veces es admitir que lo que construiste ya no te representa.</p>
+            <p><span class="highlight">Y cuesta</span>. Cuesta mucho. Porque romper algo propio se siente como perder. Pero no lo es.</p>
+            <p>Es hacer espacio.</p>
+        </div>
+
+        <div class="drawing">
+            <svg width="280" height="130" style="margin: 0 auto; display: block;">
+                <!-- Vasija rota que se convierte en mosaico -->
+                <path d="M 40 100 Q 40 40, 70 30 L 80 30 Q 110 40, 110 100 Z"
+                      fill="none" stroke="var(--color-accent)" stroke-width="2" opacity="0.3"
+                      stroke-dasharray="4,3"/>
+                <path d="M 140 80 L 155 75" stroke="var(--color-accent)" stroke-width="1.5" stroke-dasharray="2,2"/>
+                <!-- Kintsugi: las piezas reunidas con oro -->
+                <path d="M 170 100 Q 170 40, 200 30 L 210 30 Q 240 40, 240 100 Z"
+                      fill="none" stroke="var(--color-accent)" stroke-width="2"/>
+                <line x1="185" y1="45" x2="205" y2="85" stroke="var(--color-accent)" stroke-width="2.5" opacity="0.8"/>
+                <line x1="215" y1="50" x2="200" y2="75" stroke="var(--color-accent)" stroke-width="2.5" opacity="0.8"/>
+            </svg>
+            <div class="drawing-caption">kintsugi: el arte de reparar con oro lo que se rompió</div>
+        </div>
+
+        <div class="section">
+            <p>Construir algo es un acto de fe. Pero mejorarlo requiere el coraje de romperlo primero.</p>
+            <p><span class="highlight">No se trata de la perfección, se trata de no quedarse quieto</span>.</p>
+            <p>Porque al final, lo más valiente no es construir algo perfecto. Es tener el coraje de mirarlo, romperlo, y volver a empezar.</p>
+        </div>
+
+        <div class="separator">~ ~ ~</div>
+
+        <!-- Breaking bird animation -->
+        <div class="animation-container">
+            <canvas id="bird-canvas" width="400" height="400"></canvas>
+            <p class="animation-hint">[ click para romper ]</p>
+        </div>
+    </div>
+
+    <div class="signature">
+        <p style="color: var(--color-text-muted); font-style: italic;">Eugenio Cruz Ossa</p>
+    </div>
+
+    <script>
+    (function() {
+        const canvas = document.getElementById('bird-canvas');
+        const ctx = canvas.getContext('2d');
+        const W = canvas.width;
+        const H = canvas.height;
+
+        const img = new Image();
+        img.crossOrigin = 'anonymous';
+        img.src = '../Orange_small_Bird.png';
+
+        let pixels = [];
+        let exploded = false;
+        let animating = false;
+        let hasClicked = false;
+        let gravity = 0.08;
+        let imgData = null;
+        let pixelSize = 4;
+        let offsetX = 0;
+        let offsetY = 0;
+        let imgW = 0;
+        let imgH = 0;
+
+        // Hidden text behind the bird
+        const hiddenText1 = 'break things';
+        const hiddenText2 = 'to make them better';
+
+        // Off-screen canvas for the solid bird mask (covers text perfectly)
+        const maskCanvas = document.createElement('canvas');
+        maskCanvas.width = W;
+        maskCanvas.height = H;
+        const maskCtx = maskCanvas.getContext('2d');
+
+        function buildMask() {
+            maskCtx.clearRect(0, 0, W, H);
+            // Draw the scaled bird image as a solid block — no pixel gaps
+            maskCtx.drawImage(img, offsetX, offsetY, imgW, imgH);
+        }
+
+        function drawHiddenText() {
+            ctx.save();
+            ctx.font = 'bold 22px Arial, sans-serif';
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            ctx.fillStyle = '#ff6b35';
+            ctx.fillText(hiddenText1, W / 2, H / 2 - 14);
+            ctx.fillText(hiddenText2, W / 2, H / 2 + 14);
+            ctx.restore();
+        }
+
+        img.onload = function() {
+            const scale = Math.min((W * 0.95) / img.width, (H * 0.95) / img.height);
+            imgW = Math.floor(img.width * scale);
+            imgH = Math.floor(img.height * scale);
+            offsetX = Math.floor((W - imgW) / 2) - 10;
+            offsetY = Math.floor((H - imgH) / 2) - 15;
+
+            const tempCanvas = document.createElement('canvas');
+            tempCanvas.width = img.width;
+            tempCanvas.height = img.height;
+            const tempCtx = tempCanvas.getContext('2d');
+            tempCtx.drawImage(img, 0, 0);
+            imgData = tempCtx.getImageData(0, 0, img.width, img.height);
+
+            buildPixels();
+            buildMask();
+            draw();
+        };
+
+        function buildPixels() {
+            pixels = [];
+            for (let py = 0; py < imgH; py += pixelSize) {
+                for (let px = 0; px < imgW; px += pixelSize) {
+                    const srcX = Math.floor((px / imgW) * img.width);
+                    const srcY = Math.floor((py / imgH) * img.height);
+                    const i = (srcY * img.width + srcX) * 4;
+                    const r = imgData.data[i];
+                    const g = imgData.data[i + 1];
+                    const b = imgData.data[i + 2];
+                    const a = imgData.data[i + 3];
+
+                    if (a < 128) continue;
+
+                    pixels.push({
+                        x: offsetX + px,
+                        y: offsetY + py,
+                        originX: offsetX + px,
+                        originY: offsetY + py,
+                        vx: 0, vy: 0,
+                        rotation: 0, vr: 0,
+                        r, g, b, a,
+                        active: false,
+                        settled: false,
+                        size: pixelSize,
+                        damping: 0.99
+                    });
+                }
+            }
+        }
+
+        function draw() {
+            ctx.clearRect(0, 0, W, H);
+
+            if (!hasClicked) {
+                // Before any click: draw solid bird image (no text, no gaps)
+                ctx.drawImage(img, offsetX, offsetY, imgW, imgH);
+            } else {
+                // After clicking: draw text, then mask over it, then flying pixels
+                drawHiddenText();
+
+                // Draw the solid mask to cover text where pixels haven't moved yet
+                // We rebuild the mask each frame with only non-active pixel positions
+                maskCtx.clearRect(0, 0, W, H);
+                const bgColor = getComputedStyle(document.body).backgroundColor || '#1a1a1a';
+                maskCtx.fillStyle = bgColor;
+                for (const p of pixels) {
+                    if (!p.active) {
+                        // Draw a solid bg-colored block at original position to hide text
+                        maskCtx.fillRect(p.originX, p.originY, p.size, p.size);
+                    }
+                }
+                ctx.drawImage(maskCanvas, 0, 0);
+
+                // Draw non-active pixels in place (the still-intact bird parts)
+                for (const p of pixels) {
+                    if (!p.active) {
+                        ctx.fillStyle = `rgba(${p.r},${p.g},${p.b},${p.a / 255})`;
+                        ctx.fillRect(p.x, p.y, p.size, p.size);
+                    }
+                }
+
+                // Draw active (flying) pixels
+                for (const p of pixels) {
+                    if (!p.active) continue;
+                    ctx.save();
+                    ctx.translate(p.x + p.size / 2, p.y + p.size / 2);
+                    ctx.rotate(p.rotation);
+                    ctx.fillStyle = `rgba(${p.r},${p.g},${p.b},${p.a / 255})`;
+                    ctx.fillRect(-p.size / 2, -p.size / 2, p.size, p.size);
+                    ctx.restore();
+                }
+            }
+
+            if (animating) {
+                update();
+                requestAnimationFrame(draw);
+            }
+        }
+
+        function update() {
+            let allSettled = true;
+            for (const p of pixels) {
+                if (!p.active || p.settled) continue;
+
+                p.vy += gravity;
+                p.vx *= p.damping;
+                p.vy *= p.damping;
+                p.x += p.vx;
+                p.y += p.vy;
+                p.rotation += p.vr;
+                p.vr *= 0.99;
+
+                // Floor
+                if (p.y + p.size > H - 10) {
+                    p.y = H - 10 - p.size;
+                    p.vy *= -0.25;
+                    p.vx *= 0.7;
+                    p.vr *= 0.4;
+                    if (Math.abs(p.vy) < 0.4 && Math.abs(p.vx) < 0.2) {
+                        p.settled = true;
+                        p.vy = 0; p.vx = 0; p.vr = 0;
+                    }
+                }
+
+                // Walls
+                if (p.x < 0) { p.x = 0; p.vx *= -0.4; }
+                if (p.x + p.size > W) { p.x = W - p.size; p.vx *= -0.4; }
+
+                if (!p.settled) allSettled = false;
+            }
+
+            if (allSettled && exploded) {
+                animating = false;
+            }
+        }
+
+        function explodeAt(cx, cy, radius) {
+            let activated = false;
+            for (const p of pixels) {
+                if (p.active) continue;
+                const dx = (p.x + p.size / 2) - cx;
+                const dy = (p.y + p.size / 2) - cy;
+                const dist = Math.sqrt(dx * dx + dy * dy);
+
+                if (dist < radius) {
+                    p.active = true;
+                    activated = true;
+                    const force = (radius - dist) / radius;
+                    const angle = Math.atan2(dy, dx);
+                    // Slower explosion: gentler forces
+                    p.vx = Math.cos(angle) * force * (3 + Math.random() * 3);
+                    p.vy = Math.sin(angle) * force * (3 + Math.random() * 3) - 1.5;
+                    p.vr = (Math.random() - 0.5) * 0.15;
+                }
+            }
+
+            if (activated) {
+                const activeCount = pixels.filter(p => p.active).length;
+                if (activeCount > pixels.length * 0.75) {
+                    for (const p of pixels) {
+                        if (!p.active) {
+                            p.active = true;
+                            p.vx = (Math.random() - 0.5) * 3;
+                            p.vy = -Math.random() * 4;
+                            p.vr = (Math.random() - 0.5) * 0.1;
+                        }
+                    }
+                    exploded = true;
+                }
+
+                if (!animating) {
+                    animating = true;
+                    draw();
+                }
+            }
+        }
+
+        canvas.addEventListener('click', function(e) {
+            if (!hasClicked) hasClicked = true;
+            const rect = canvas.getBoundingClientRect();
+            const scaleX = W / rect.width;
+            const scaleY = H / rect.height;
+            const cx = (e.clientX - rect.left) * scaleX;
+            const cy = (e.clientY - rect.top) * scaleY;
+            explodeAt(cx, cy, 45);
+        });
+    })();
+    </script>
+
+    <script src="../theme.js"></script>
+    <script src="../i18n.js"></script>
+</body>
+</html>

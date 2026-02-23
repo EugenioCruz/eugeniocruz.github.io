@@ -261,7 +261,7 @@
             max-width: 600px;
             min-height: 100vh;
             margin: 0 auto;
-            padding: var(--space-lg) var(--space-lg) 6rem;
+            padding: var(--space-lg) var(--space-lg) 8rem;
         }
 
         #stuff h1 {
@@ -317,17 +317,25 @@
             left: 0;
             right: 0;
             text-align: center;
-            padding: var(--space-md);
+            padding: 3rem var(--space-md) var(--space-md);
             font-size: small;
             color: var(--color-text-muted);
-            background: linear-gradient(transparent, var(--color-bg));
+            background: linear-gradient(transparent, var(--color-bg) 40%);
+            pointer-events: none;
+        }
+
+        footer p, footer .emails, footer .emails a, footer .emails .separator {
+            pointer-events: auto;
         }
 
         .emails {
             display: flex;
-            flex-direction: column;
-            gap: 4px;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            gap: 0;
             margin-top: var(--space-sm);
+            flex-wrap: wrap;
         }
 
         .emails a {
@@ -338,6 +346,12 @@
 
         .emails a:hover {
             color: var(--color-hover);
+        }
+
+        .emails .separator {
+            color: var(--color-text-muted);
+            margin: 0 0.5rem;
+            font-size: 0.85rem;
         }
 
         /* CV Dropdown */
@@ -543,7 +557,9 @@
             <p>say hi</p>
             <div class="emails">
                 <a href="mailto:eugenio.cruzossa@epfl.ch">eugenio.cruzossa@epfl.ch</a>
+                <span class="separator">|</span>
                 <a href="mailto:ecruz3@uc.cl">ecruz3@uc.cl</a>
+                <span class="separator">|</span>
                 <a href="mailto:eugenio.cruz.ossa@gmail.com">eugenio.cruz.ossa@gmail.com</a>
             </div>
         </footer>

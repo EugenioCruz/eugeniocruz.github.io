@@ -136,18 +136,19 @@
             transition: opacity 0.3s;
         }
 
-        .photo-card:hover .photo-overlay {
+        .photo-card:hover .photo-overlay.has-info {
             opacity: 1;
         }
 
-        .photo-title {
-            font-size: 1rem;
-            margin-bottom: 4px;
+        .photo-date {
+            font-size: 0.8rem;
+            color: var(--color-accent);
+            margin-bottom: 2px;
         }
 
-        .photo-location {
-            font-size: 0.85rem;
-            color: var(--color-text-muted);
+        .photo-description {
+            font-size: 0.9rem;
+            color: var(--color-text);
         }
 
         /* Lightbox */
@@ -170,21 +171,26 @@
             max-width: 90%;
             max-height: 90%;
             position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         .lightbox-content img {
             max-width: 100%;
             max-height: 85vh;
             object-fit: contain;
+            display: block;
         }
 
         .lightbox-caption {
             text-align: center;
             margin-top: var(--space-md);
+            max-width: 600px;
         }
 
         .lightbox-close {
-            position: absolute;
+            position: fixed;
             top: 20px;
             right: 20px;
             background: none;
@@ -205,7 +211,7 @@
         }
 
         .lightbox-nav {
-            position: absolute;
+            position: fixed;
             top: 50%;
             transform: translateY(-50%);
             background: rgba(255, 255, 255, 0.1);
@@ -310,42 +316,146 @@
         <p class="subtitle">Captured moments from my adventures and travels</p>
 
         <div class="gallery" id="gallery">
-            <div class="photo-card"><img src="photos/1AE93DE0-D31F-49B4-B132-D2D6A49D7E46.JPG" alt="Photo"></div>
-            <div class="photo-card"><img src="photos/DSC_1221 2.JPG" alt="Photo"></div>
-            <div class="photo-card"><img src="photos/IMG_1054.jpg" alt="Photo"></div>
-            <div class="photo-card"><img src="photos/IMG_1209.JPG" alt="Photo"></div>
-            <div class="photo-card"><img src="photos/IMG_1477.JPG" alt="Photo"></div>
-            <div class="photo-card"><img src="photos/IMG_1620.jpg" alt="Photo"></div>
-            <div class="photo-card"><img src="photos/IMG_1652.jpg" alt="Photo"></div>
-            <div class="photo-card"><img src="photos/IMG_1813.jpeg" alt="Photo"></div>
-            <div class="photo-card"><img src="photos/IMG_2065.jpeg" alt="Photo"></div>
-            <div class="photo-card"><img src="photos/IMG_2156.jpeg" alt="Photo"></div>
-            <div class="photo-card"><img src="photos/IMG_3687 2.JPG" alt="Photo"></div>
-            <div class="photo-card"><img src="photos/IMG_3687.JPG" alt="Photo"></div>
-            <div class="photo-card"><img src="photos/IMG_3714.JPG" alt="Photo"></div>
-            <div class="photo-card"><img src="photos/IMG_3835.jpg" alt="Photo"></div>
-            <div class="photo-card"><img src="photos/IMG_4344_jpg.JPG" alt="Photo"></div>
-            <div class="photo-card"><img src="photos/IMG_4709_jpg.JPG" alt="Photo"></div>
-            <div class="photo-card"><img src="photos/IMG_4712.jpeg" alt="Photo"></div>
-            <div class="photo-card"><img src="photos/IMG_5373.jpg" alt="Photo"></div>
-            <div class="photo-card"><img src="photos/IMG_5447_jpg 2.JPG" alt="Photo"></div>
-            <div class="photo-card"><img src="photos/IMG_5532.jpeg" alt="Photo"></div>
-            <div class="photo-card"><img src="photos/IMG_5569_jpg 2.JPG" alt="Photo"></div>
-            <div class="photo-card"><img src="photos/IMG_5611.jpeg" alt="Photo"></div>
-            <div class="photo-card"><img src="photos/IMG_5695.jpeg" alt="Photo"></div>
-            <div class="photo-card"><img src="photos/IMG_5854_jpg 2.JPG" alt="Photo"></div>
-            <div class="photo-card"><img src="photos/IMG_6173.jpeg" alt="Photo"></div>
-            <div class="photo-card"><img src="photos/IMG_8473.jpeg" alt="Photo"></div>
-            <div class="photo-card"><img src="photos/IMG_8742.jpeg" alt="Photo"></div>
-            <div class="photo-card"><img src="photos/IMG_8859.JPG" alt="Photo"></div>
-            <div class="photo-card"><img src="photos/IMG_9023.JPG" alt="Photo"></div>
-            <div class="photo-card"><img src="photos/IMG_9036.JPG" alt="Photo"></div>
-            <div class="photo-card"><img src="photos/IMG_9042.JPG" alt="Photo"></div>
-            <div class="photo-card"><img src="photos/IMG_9047.JPG" alt="Photo"></div>
-            <div class="photo-card"><img src="photos/IMG_9141.jpeg" alt="Photo"></div>
-            <div class="photo-card"><img src="photos/IMG_9570.jpeg" alt="Photo"></div>
-            <div class="photo-card"><img src="photos/IMG_9728.jpg" alt="Photo"></div>
-            <div class="photo-card"><img src="photos/IMG_9739.jpeg" alt="Photo"></div>
+            <div class="photo-card" data-date="Enero 2026" data-description="Gruyère, Suiza. Una foto del pueblo original del famoso queso que lleva su nombre. Recorrido con mis papás un día que estaba nevando: muy lindo todo">
+                <img src="photos/IMG_8859.JPG" alt="Photo">
+                <div class="photo-overlay"><div class="photo-date"></div><div class="photo-description"></div></div>
+            </div>
+            <div class="photo-card" data-date="Enero 2026" data-description="Annecy, Francia. Foto de este bonito pueblo recorrido junto a mis papás">
+                <img src="photos/IMG_9023.JPG" alt="Photo">
+                <div class="photo-overlay"><div class="photo-date"></div><div class="photo-description"></div></div>
+            </div>
+            <div class="photo-card" data-date="Enero 2026" data-description="Annecy, Francia. Mi mamá comiendo un eclair francés en una cafetería">
+                <img src="photos/IMG_9036.JPG" alt="Photo">
+                <div class="photo-overlay"><div class="photo-date"></div><div class="photo-description"></div></div>
+            </div>
+            <div class="photo-card" data-date="" data-description="Annecy, Francia. Me encantaron los colores: Recorrido con mis papás">
+                <img src="photos/IMG_9047.JPG" alt="Photo">
+                <div class="photo-overlay"><div class="photo-date"></div><div class="photo-description"></div></div>
+            </div>
+            <div class="photo-card" data-date="Enero 2026" data-description="Annecy, Francia. Una foto de lo precioso de la Venecia de Francia. Recorrido con mis papás">
+                <img src="photos/IMG_9042.JPG" alt="Photo">
+                <div class="photo-overlay"><div class="photo-date"></div><div class="photo-description"></div></div>
+            </div>
+            <div class="photo-card" data-date="Agosto 2025" data-description="Venecia, Italia. Recorriendo con Moraga y Guerra">
+                <img src="photos/IMG_6173.jpeg" alt="Photo">
+                <div class="photo-overlay"><div class="photo-date"></div><div class="photo-description"></div></div>
+            </div>
+            <div class="photo-card" data-date="Agosto 2025" data-description="Bled, Eslovenia. Recorriendo con Moraga y Guerra">
+                <img src="photos/DSC_1221 2.JPG" alt="Photo">
+                <div class="photo-overlay"><div class="photo-date"></div><div class="photo-description"></div></div>
+            </div>
+            <div class="photo-card" data-date="Agosto 2025" data-description="Bled, Eslovenia. Recorriendo con Moraga y Guerra">
+                <img src="photos/IMG_5373.jpg" alt="Photo">
+                <div class="photo-overlay"><div class="photo-date"></div><div class="photo-description"></div></div>
+            </div>
+            <div class="photo-card" data-date="Agosto 2025" data-description="Bled, Eslovenia. Recorriendo con Moraga y Guerra">
+                <img src="photos/IMG_5447_jpg 2.JPG" alt="Photo">
+                <div class="photo-overlay"><div class="photo-date"></div><div class="photo-description"></div></div>
+            </div>
+            <div class="photo-card" data-date="Agosto 2025" data-description="Bled, Eslovenia. Recorriendo con Moraga y Guerra">
+                <img src="photos/IMG_5695.jpeg" alt="Photo">
+                <div class="photo-overlay"><div class="photo-date"></div><div class="photo-description"></div></div>
+            </div>
+            <div class="photo-card" data-date="Agosto 2025" data-description="Cueva de Postojna, Eslovenia. Recorriendo con Moraga y Guerra: ">
+                <img src="photos/IMG_5854_jpg 2.JPG" alt="Photo">
+                <div class="photo-overlay"><div class="photo-date"></div><div class="photo-description"></div></div>
+            </div>
+            <div class="photo-card" data-date="Agosto 2025" data-description="Bohinjsko Jezero, Eslovenia. Recorriendo con Moraga y Guerra">
+                <img src="photos/IMG_5532.jpeg" alt="Photo">
+                <div class="photo-overlay"><div class="photo-date"></div><div class="photo-description"></div></div>
+            </div>
+            <div class="photo-card" data-date="Agosto 2025" data-description="Bohinjsko Jezero, Eslovenia. Recorriendo con Moraga y Guerra">
+                <img src="photos/IMG_5569_jpg 2.JPG" alt="Photo">
+                <div class="photo-overlay"><div class="photo-date"></div><div class="photo-description"></div></div>
+            </div>
+            <div class="photo-card" data-date="Agosto 2025" data-description="Bohinjsko Jezero, Eslovenia. Recorriendo con Moraga y Guerra">
+                <img src="photos/IMG_5611.jpeg" alt="Photo">
+                <div class="photo-overlay"><div class="photo-date"></div><div class="photo-description"></div></div>
+            </div>
+            <div class="photo-card" data-date="Julio 2025" data-description="Anochecer en Budapest. Recorriendo con Iván, Moraga y Guerra. Muy bonita noche">
+                <img src="photos/IMG_1477.JPG" alt="Photo">
+                <div class="photo-overlay"><div class="photo-date"></div><div class="photo-description"></div></div>
+            </div>
+            <div class="photo-card" data-date="Julio 2025" data-description="Ruins Bars en Budapest junto a Iván, Guerra y Moraga">
+                <img src="photos/IMG_4712.jpeg" alt="Photo">
+                <div class="photo-overlay"><div class="photo-date"></div><div class="photo-description"></div></div>
+            </div>
+            <div class="photo-card" data-date="Julio 2025" data-description="Ruins Bars en Budapest junto a Iván, Guerra y Moraga">
+                <img src="photos/IMG_4709_jpg.JPG" alt="Photo">
+                <div class="photo-overlay"><div class="photo-date"></div><div class="photo-description"></div></div>
+            </div>
+            <div class="photo-card" data-date="Julio 2025" data-description="Krka, Croacia. Parque precioso visitado junto a Iván, Guerra y Moraga">
+                <img src="photos/IMG_3687 2.JPG" alt="Photo">
+                <div class="photo-overlay"><div class="photo-date"></div><div class="photo-description"></div></div>
+            </div>
+            <div class="photo-card" data-date="Julio 2025" data-description="Krka, Croacia. Parque precioso visitado junto a Iván, Guerra y Moraga">
+                <img src="photos/IMG_3714.JPG" alt="Photo">
+                <div class="photo-overlay"><div class="photo-date"></div><div class="photo-description"></div></div>
+            </div>
+            <div class="photo-card" data-date="Julio 2025" data-description="Krka, Croacia. Parque precioso visitado junto a Iván, Guerra y Moraga">
+                <img src="photos/IMG_4344_jpg.JPG" alt="Photo">
+                <div class="photo-overlay"><div class="photo-date"></div><div class="photo-description"></div></div>
+            </div>
+            <div class="photo-card" data-date="Julio 2025" data-description="Dean Village, Edimburgo. Viaje con mis tatas y papás">
+                <img src="photos/IMG_2065.jpeg" alt="Photo">
+                <div class="photo-overlay"><div class="photo-date"></div><div class="photo-description"></div></div>
+            </div>
+            <div class="photo-card" data-date="Junio 2025" data-description="En mi casa, unas pizzas caseras con amigos :)">
+                <img src="photos/IMG_1652.jpg" alt="Photo">
+                <div class="photo-overlay"><div class="photo-date"></div><div class="photo-description"></div></div>
+            </div>
+            <div class="photo-card" data-date="Enero 2025" data-description="Río Bueno, La Unión. Bonito atardecer en el río junto a Renzo">
+                <img src="photos/IMG_9570.jpeg" alt="Photo">
+                <div class="photo-overlay"><div class="photo-date"></div><div class="photo-description"></div></div>
+            </div>
+            <div class="photo-card" data-date="Enero 2025" data-description="Río Bueno, La Unión. Amanecer dorado de antes de salir a pescar junto a Renzo">
+                <img src="photos/IMG_9728.jpg" alt="Photo">
+                <div class="photo-overlay"><div class="photo-date"></div><div class="photo-description"></div></div>
+            </div>
+            <div class="photo-card" data-date="Enero 2025" data-description="Río Bueno, La Unión. Listos para pescar junto a Renzo">
+                <img src="photos/IMG_9739.jpeg" alt="Photo">
+                <div class="photo-overlay"><div class="photo-date"></div><div class="photo-description"></div></div>
+            </div>
+            <div class="photo-card" data-date="Febrero 2024" data-description="Lago Vichuquén, me estaba preparando para esquiar">
+                <img src="photos/IMG_1054.jpg" alt="Photo">
+                <div class="photo-overlay"><div class="photo-date"></div><div class="photo-description"></div></div>
+            </div>
+            <div class="photo-card" data-date="Febrero 2024" data-description="Lago Vichuquén, sacando en sacachucha a Chopi y Samuel">
+                <img src="photos/1AE93DE0-D31F-49B4-B132-D2D6A49D7E46.JPG" alt="Photo">
+                <div class="photo-overlay"><div class="photo-date"></div><div class="photo-description"></div></div>
+            </div>
+            <div class="photo-card" data-date="Octubre 2024" data-description="Patito en la laguna de Chicureo">
+                <img src="photos/IMG_1813.jpeg" alt="Photo">
+                <div class="photo-overlay"><div class="photo-date"></div><div class="photo-description"></div></div>
+            </div>
+            <div class="photo-card" data-date="Febrero 2024" data-description="Lago Vichuquén, sacando en sacachucha a Chopi y Samuel">
+                <img src="photos/IMG_1209.JPG" alt="Photo">
+                <div class="photo-overlay"><div class="photo-date"></div><div class="photo-description"></div></div>
+            </div>
+            <div class="photo-card" data-date="Febrero 2024" data-description="Río Puelo, fuimos junto a la Elisa, Trini, Pablo y la Pipa (la perrita de Pablo)">
+                <img src="photos/IMG_1620.jpg" alt="Photo">
+                <div class="photo-overlay"><div class="photo-date"></div><div class="photo-description"></div></div>
+            </div>
+            <div class="photo-card" data-date="Febrero 2023" data-description="Laguna de los Morros, esquiando donde siempre. 55 km/h">
+                <img src="photos/IMG_3835.jpg" alt="Photo">
+                <div class="photo-overlay"><div class="photo-date"></div><div class="photo-description"></div></div>
+            </div>
+            <div class="photo-card" data-date="Enero 2023" data-description="Torres del Paine: viaje junto a Lucas, Jp, y Valdi">
+                <img src="photos/IMG_2156.jpeg" alt="Photo">
+                <div class="photo-overlay"><div class="photo-date"></div><div class="photo-description"></div></div>
+            </div>
+            <div class="photo-card" data-date="Navidad 2024" data-description="Foto con Tomás, Emma y el Peter. Una navidad familiar con mucho cariño.">
+                <img src="photos/IMG_8473.jpeg" alt="Photo">
+                <div class="photo-overlay"><div class="photo-date"></div><div class="photo-description"></div></div>
+            </div>
+            <div class="photo-card" data-date="Noviembre 2024" data-description="En la casa de Renzo: Nos había invitado a hacer unas pizzas y como siempre estaban buenísimas">
+                <img src="photos/IMG_8742.jpeg" alt="Photo">
+                <div class="photo-overlay"><div class="photo-date"></div><div class="photo-description"></div></div>
+            </div>
+            <div class="photo-card" data-date="Mayo 2023" data-description="Una foto del Peter. Mi lindo compañero de mi infancia con sus orejitas saltando y las hojas de otoño que tanto le gustaban :)">
+                <img src="photos/IMG_9141.jpeg" alt="Photo">
+                <div class="photo-overlay"><div class="photo-date"></div><div class="photo-description"></div></div>
+            </div>
         </div>
     </div>
 
@@ -356,6 +466,10 @@
         <button class="lightbox-nav lightbox-next" onclick="changePhoto(1)">›</button>
         <div class="lightbox-content">
             <img id="lightbox-img" src="" alt="">
+            <div class="lightbox-caption">
+                <div id="lightbox-date" style="color: var(--color-accent); font-size: 0.85rem;"></div>
+                <div id="lightbox-description" style="color: var(--color-text-muted); font-size: 0.95rem; margin-top: 4px;"></div>
+            </div>
         </div>
     </div>
 
@@ -370,7 +484,9 @@
             if (img && img.src) {
                 photos.push({
                     src: img.src,
-                    alt: img.alt
+                    alt: img.alt,
+                    date: card.dataset.date || '',
+                    description: card.dataset.description || ''
                 });
 
                 card.addEventListener('click', () => {
@@ -384,6 +500,8 @@
             currentPhotoIndex = index;
             const photo = photos[currentPhotoIndex];
             document.getElementById('lightbox-img').src = photo.src;
+            document.getElementById('lightbox-date').textContent = photo.date;
+            document.getElementById('lightbox-description').textContent = photo.description;
             document.getElementById('lightbox').classList.add('active');
         }
 
@@ -406,6 +524,14 @@
         // Close lightbox on background click
         document.getElementById('lightbox').addEventListener('click', (e) => {
             if (e.target.id === 'lightbox') closeLightbox();
+        });
+
+        // Mark overlays that have info
+        photoCards.forEach(card => {
+            const overlay = card.querySelector('.photo-overlay');
+            if (overlay && (card.dataset.date || card.dataset.description)) {
+                overlay.classList.add('has-info');
+            }
         });
     </script>
     <script src="theme.js"></script>

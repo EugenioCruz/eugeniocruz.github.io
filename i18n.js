@@ -60,10 +60,9 @@ const translations = {
             enjoyingItem2: "Playing: Hive (always!)",
             enjoyingItem3: "Listening: Check my Spotify for my current rotation",
             adventures: "Adventures",
-            adventuresText: "Making the most of being in Switzerland exploring the surroundings of Lausanne. Recently visited Geneva, Gruyères and Annecy (Very nice!). Planning trips to Sweden and Paris. Trying to document everything through photos :).",
+            adventuresText: "Making the most of being in Switzerland exploring the surroundings of Lausanne. Recently visited Geneva, Gruyères and Annecy (Very nice!). Planning trips to Norway and Paris. Trying to document everything through photos :).",
             stats: "Stats",
             countriesVisited: "Countries visited",
-            netflixWatched: "of Netflix watched",
             hiveGames: "Hive games played",
             yearsOld: "Years old",
             countriesTitle: "Countries I've visited"
@@ -143,10 +142,9 @@ const translations = {
             enjoyingItem2: "Jugando: Hive (siempre!)",
             enjoyingItem3: "Escuchando: Revisa mi Spotify para ver mi rotación actual",
             adventures: "Aventuras",
-            adventuresText: "Aprovechando estar en Suiza explorando los alrededores de Lausana. Recientemente visité Ginebra, Gruyères y Annecy (muy bonito!). Planeando viajes a Suecia y París. Intentando documentar todo a través de fotitos :).",
+            adventuresText: "Aprovechando estar en Suiza explorando los alrededores de Lausana. Recientemente visité Ginebra, Gruyères y Annecy (muy bonito!). Planeando viajes a Noruega y París. Intentando documentar todo a través de fotitos :).",
             stats: "Estadísticas",
             countriesVisited: "Países visitados",
-            netflixWatched: "de Netflix visto",
             hiveGames: "Juegos de Hive jugados",
             yearsOld: "Años",
             countriesTitle: "Países que he visitado"
@@ -226,10 +224,9 @@ const translations = {
             enjoyingItem2: "En train de jouer : Hive (toujours !)",
             enjoyingItem3: "En train d'écouter : Consultez mon Spotify pour ma rotation actuelle",
             adventures: "Aventures",
-            adventuresText: "Je profite au maximum d'être en Suisse en explorant les environs de Lausanne. J'ai récemment visité Genève, Gruyères et Annecy (Très joli !). Je prévois des voyages en Suède et à Paris. J'essaie de documenter tout par des photos :).",
+            adventuresText: "Je profite au maximum d'être en Suisse en explorant les environs de Lausanne. J'ai récemment visité Genève, Gruyères et Annecy (Très joli !). Je prévois des voyages en Norvège et à Paris. J'essaie de documenter tout par des photos :).",
             stats: "Statistiques",
             countriesVisited: "Pays visités",
-            netflixWatched: "de Netflix regardé",
             hiveGames: "Parties de Hive jouées",
             yearsOld: "Ans",
             countriesTitle: "Pays que j'ai visités"
@@ -492,11 +489,10 @@ function updateNowPage(t) {
 
     // Update stats labels (preserve the age span content)
     const statLabels = document.querySelectorAll('.stat-label');
-    if (statLabels.length >= 4) {
+    if (statLabels.length >= 3) {
         statLabels[0].textContent = t.now.countriesVisited;
-        statLabels[1].textContent = t.now.netflixWatched;
-        statLabels[2].textContent = t.now.hiveGames;
-        statLabels[3].textContent = t.now.yearsOld;
+        statLabels[1].textContent = t.now.hiveGames;
+        statLabels[2].textContent = t.now.yearsOld;
     }
 
     // Always recalculate age after language change
