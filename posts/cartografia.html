@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Eugenio Cruz">
+    <title>Cartografía - Eugenio Cruz</title>
+    <link rel="icon" href="../Orange_Bird.png" type="image/png">
+    <style>
+        :root {
+            --color-bg: #1a1a1a;
+            --color-text: #fff8f0;
+            --color-text-muted: #c4a77d;
+            --color-accent: #ff6b35;
+            --color-accent-light: #ffa366;
+            --color-hover: #ffcc99;
+            --font-family: Arial, sans-serif;
+            --max-width: 650px;
+            --space-sm: 0.5rem;
+            --space-md: 1rem;
+            --space-lg: 2rem;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: var(--font-family);
+            color: var(--color-text);
+        }
+
+        body {
+            background-color: var(--color-bg);
+            min-height: 100vh;
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: var(--space-lg);
+            line-height: 1.8;
+        }
+
+        .back {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--color-accent);
+            text-decoration: none;
+            font-size: 0.9rem;
+            margin-bottom: var(--space-lg);
+            transition: color 0.2s;
+        }
+
+        .back:hover {
+            color: var(--color-hover);
+        }
+
+        .back svg {
+            width: 16px;
+            height: 16px;
+            fill: currentColor;
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            margin-bottom: var(--space-sm);
+            color: var(--color-accent);
+        }
+
+        .date {
+            color: var(--color-text-muted);
+            font-size: 0.9rem;
+            margin-bottom: var(--space-lg);
+        }
+
+        .post-content {
+            margin-top: var(--space-lg);
+        }
+
+        .prose {
+            margin-bottom: var(--space-lg);
+            font-size: 1.05rem;
+            line-height: 1.9;
+        }
+
+        .prose p {
+            margin-bottom: 1rem;
+        }
+
+        .verse-indent {
+            padding-left: 2rem;
+            font-style: italic;
+            color: var(--color-text-muted);
+        }
+
+        .verse-quote {
+            text-align: center;
+            font-style: italic;
+            color: var(--color-accent-light);
+            font-size: 1.15rem;
+            margin: var(--space-lg) 0;
+            padding: var(--space-md);
+        }
+
+        .drawing {
+            margin: var(--space-lg) 0;
+            text-align: center;
+            padding: var(--space-lg);
+            background: rgba(255, 107, 53, 0.05);
+            border-radius: 8px;
+            border: 1px solid rgba(255, 107, 53, 0.2);
+        }
+
+        .drawing-caption {
+            font-size: 0.85rem;
+            color: var(--color-text-muted);
+            font-style: italic;
+            margin-top: var(--space-sm);
+        }
+
+        .highlight-box {
+            background: rgba(255, 107, 53, 0.1);
+            border-left: 3px solid var(--color-accent);
+            padding: var(--space-md);
+            margin: var(--space-lg) 0;
+            border-radius: 4px;
+        }
+
+        .highlight-box p {
+            margin: 0;
+            font-size: 1.05rem;
+        }
+
+        .separator {
+            text-align: center;
+            margin: var(--space-lg) 0;
+            color: var(--color-accent);
+            font-size: 1.5rem;
+            letter-spacing: 12px;
+        }
+
+        .signature {
+            margin-top: var(--space-lg);
+            padding-top: var(--space-lg);
+            border-top: 1px solid rgba(255, 107, 53, 0.2);
+            text-align: center;
+        }
+
+        /* Compass needle animation */
+        @keyframes settle-needle {
+            0% { transform: rotate(-40deg); }
+            25% { transform: rotate(20deg); }
+            50% { transform: rotate(-8deg); }
+            75% { transform: rotate(3deg); }
+            100% { transform: rotate(0deg); }
+        }
+
+        .compass-needle {
+            transform-origin: 150px 150px;
+            animation: settle-needle 3s ease-out forwards;
+        }
+
+        /* Path drawing animation */
+        @keyframes draw-path {
+            to { stroke-dashoffset: 0; }
+        }
+
+        .draw-line {
+            stroke-dasharray: 400;
+            stroke-dashoffset: 400;
+            animation: draw-path 3s ease forwards 0.3s;
+        }
+
+        /* Sequential marker fade-in */
+        @keyframes fade-in {
+            from { opacity: 0; transform: scale(0); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        .marker-1 { opacity: 0; animation: fade-in 0.5s ease forwards 1.2s; }
+        .marker-2 { opacity: 0; animation: fade-in 0.5s ease forwards 2s; }
+        .marker-3 { opacity: 0; animation: fade-in 0.5s ease forwards 2.8s; }
+
+        .marker-1, .marker-2, .marker-3 {
+            transform-box: fill-box;
+            transform-origin: center;
+        }
+
+        /* Game section */
+        .game-section {
+            margin: var(--space-lg) 0;
+            text-align: center;
+        }
+
+        .game-section canvas {
+            border-radius: 8px;
+            cursor: crosshair;
+            max-width: 100%;
+            display: block;
+            margin: 0 auto;
+            border: 1px solid rgba(255, 107, 53, 0.2);
+            touch-action: none;
+        }
+
+        .game-hint {
+            font-size: 0.75rem;
+            color: #555;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            margin-top: var(--space-sm);
+            text-align: center;
+        }
+
+        .game-counter {
+            font-size: 0.9rem;
+            color: var(--color-text-muted);
+            margin-top: var(--space-sm);
+            text-align: center;
+            transition: color 0.3s;
+        }
+
+        .game-counter.complete {
+            color: var(--color-accent);
+        }
+
+        .game-message {
+            font-size: 1rem;
+            color: var(--color-accent-light);
+            font-style: italic;
+            margin-top: var(--space-md);
+            text-align: center;
+            opacity: 0;
+            transition: opacity 0.8s ease;
+        }
+
+        .game-message.visible {
+            opacity: 1;
+        }
+
+        .lang-selector {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            gap: 8px;
+            z-index: 100;
+        }
+
+        .lang-btn {
+            background: rgba(255, 107, 53, 0.1);
+            border: 1px solid var(--color-accent);
+            color: var(--color-accent);
+            padding: 6px 12px;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 0.85rem;
+            font-family: var(--font-family);
+        }
+
+        .lang-btn:hover,
+        .lang-btn.active {
+            background: var(--color-accent);
+            color: var(--color-bg);
+        }
+
+        #theme-toggle {
+            background: rgba(255, 107, 53, 0.1);
+            border: 1px solid var(--color-accent);
+            color: var(--color-accent);
+            padding: 6px 12px;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 1.2rem;
+            font-family: var(--font-family);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #theme-toggle:hover {
+            background: var(--color-accent);
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="lang-selector">
+        <button id="theme-toggle" title="Cambiar tema">🌙</button>
+        <button class="lang-btn active" data-lang="en">EN</button>
+        <button class="lang-btn" data-lang="es">ES</button>
+        <button class="lang-btn" data-lang="fr">FR</button>
+    </div>
+
+    <a href="../blog.html" class="back">
+        <svg viewBox="0 0 448 512"><path d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.2 288 416 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-306.7 0L214.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg>
+        Volver
+    </a>
+
+    <h1>Cartografía</h1>
+    <p class="date">Marzo 2026</p>
+
+    <div class="post-content">
+
+        <!-- Compass rose -->
+        <div class="drawing">
+            <svg width="200" height="200" viewBox="0 0 300 300" style="margin: 0 auto; display: block;">
+                <circle cx="150" cy="150" r="120" fill="none" stroke="var(--color-accent)" stroke-width="1" opacity="0.15"/>
+                <circle cx="150" cy="150" r="90" fill="none" stroke="var(--color-accent)" stroke-width="0.5" opacity="0.1"/>
+                <circle cx="150" cy="150" r="60" fill="none" stroke="var(--color-accent)" stroke-width="0.5" opacity="0.1"/>
+                <line x1="150" y1="28" x2="150" y2="38" stroke="var(--color-accent)" stroke-width="1" opacity="0.3"/>
+                <line x1="150" y1="262" x2="150" y2="272" stroke="var(--color-accent)" stroke-width="1" opacity="0.3"/>
+                <line x1="28" y1="150" x2="38" y2="150" stroke="var(--color-accent)" stroke-width="1" opacity="0.3"/>
+                <line x1="262" y1="150" x2="272" y2="150" stroke="var(--color-accent)" stroke-width="1" opacity="0.3"/>
+                <text x="150" y="22" text-anchor="middle" fill="var(--color-accent)" font-size="13" font-family="Arial">N</text>
+                <text x="150" y="290" text-anchor="middle" fill="var(--color-accent)" font-size="13" font-family="Arial" opacity="0.4">S</text>
+                <text x="284" y="155" text-anchor="middle" fill="var(--color-accent)" font-size="13" font-family="Arial" opacity="0.4">E</text>
+                <text x="16" y="155" text-anchor="middle" fill="var(--color-accent)" font-size="13" font-family="Arial" opacity="0.4">O</text>
+                <g class="compass-needle">
+                    <polygon points="150,55 144,150 156,150" fill="var(--color-accent)" opacity="0.9"/>
+                    <polygon points="150,245 144,150 156,150" fill="var(--color-accent)" opacity="0.2"/>
+                </g>
+                <circle cx="150" cy="150" r="4" fill="var(--color-accent)"/>
+            </svg>
+            <div class="drawing-caption">toda cartografía empieza buscando el norte</div>
+        </div>
+
+        <div class="prose">
+            <p>Todo mapa es una muestra inexorable de experiencias. Pero no todos los mapas demarcan un camino: algunos solo señalan un punto en donde te perdiste, otros el sitio exacto al cual volviste.</p>
+        </div>
+
+        <!-- Winding path with three markers -->
+        <div class="drawing">
+            <svg width="300" height="130" style="margin: 0 auto; display: block;">
+                <path class="draw-line" d="M 25 95 Q 70 30, 130 65 Q 180 95, 220 50 Q 245 25, 275 40"
+                      fill="none" stroke="var(--color-accent)" stroke-width="1.5" opacity="0.4"/>
+                <g class="marker-1">
+                    <circle cx="55" cy="60" r="10" fill="none" stroke="var(--color-accent)" stroke-width="1" opacity="0.3"/>
+                    <circle cx="55" cy="60" r="4" fill="var(--color-accent)" opacity="0.5"/>
+                    <text x="55" y="85" text-anchor="middle" fill="var(--color-text-muted)" font-size="9" font-family="Arial" font-style="italic">te perdiste</text>
+                </g>
+                <g class="marker-2">
+                    <circle cx="160" cy="72" r="10" fill="none" stroke="var(--color-accent)" stroke-width="1" opacity="0.5"/>
+                    <circle cx="160" cy="72" r="4" fill="var(--color-accent)" opacity="0.7"/>
+                    <text x="160" y="97" text-anchor="middle" fill="var(--color-text-muted)" font-size="9" font-family="Arial" font-style="italic">volviste</text>
+                </g>
+                <g class="marker-3">
+                    <circle cx="260" cy="42" r="10" fill="none" stroke="var(--color-accent)" stroke-width="1.5" opacity="0.7"/>
+                    <circle cx="260" cy="42" r="5" fill="var(--color-accent)"/>
+                    <text x="260" y="67" text-anchor="middle" fill="var(--color-text-muted)" font-size="9" font-family="Arial" font-style="italic">ahora</text>
+                </g>
+            </svg>
+            <div class="drawing-caption">tres puntos, una historia</div>
+        </div>
+
+        <div class="prose">
+            <p>A veces son sitios que te imaginaste, a los que te gustaría haber llegado, e incluso otras veces son mapas de aquellas personas que no has olvidado y que sin embargo siguen pasando por tu mente.</p>
+            <p>Hay mapas que se trazan con la memoria de alguien que ya no está, pero cuya presencia dejó marcas más profundas que cualquier camino de tierra.</p>
+        </div>
+
+        <div class="separator">~ ~ ~</div>
+
+        <div class="prose">
+            <p>No todo mapa tiene siquiera líneas claras ni un destino final: muchas veces son trozos de intuición:</p>
+            <p class="verse-indent">un "aquí fui feliz",</p>
+            <p class="verse-indent">un "aquí conocí a esa persona",</p>
+            <p class="verse-indent">o incluso un "aquí no volvería".</p>
+        </div>
+
+        <!-- Topographic emotional contours -->
+        <div class="drawing">
+            <svg width="300" height="160" style="margin: 0 auto; display: block;">
+                <path d="M 30 120 Q 80 100, 130 110 Q 180 120, 230 105 Q 260 95, 280 100"
+                      fill="none" stroke="var(--color-accent)" stroke-width="0.8" opacity="0.15"/>
+                <path d="M 40 105 Q 90 80, 140 95 Q 190 108, 235 88 Q 260 78, 275 85"
+                      fill="none" stroke="var(--color-accent)" stroke-width="0.8" opacity="0.25"/>
+                <path d="M 55 90 Q 100 62, 148 78 Q 195 92, 230 72 Q 255 60, 270 68"
+                      fill="none" stroke="var(--color-accent)" stroke-width="1" opacity="0.35"/>
+                <path d="M 70 78 Q 110 50, 152 65 Q 195 78, 225 58 Q 248 46, 260 54"
+                      fill="none" stroke="var(--color-accent)" stroke-width="1.2" opacity="0.5"/>
+                <path d="M 90 65 Q 120 42, 155 55 Q 190 65, 218 48 Q 238 38, 248 44"
+                      fill="none" stroke="var(--color-accent)" stroke-width="1.5" opacity="0.65"/>
+                <path d="M 115 55 Q 135 38, 158 48 Q 180 55, 205 42"
+                      fill="none" stroke="var(--color-accent)" stroke-width="1.8" opacity="0.8"/>
+                <circle cx="158" cy="48" r="3" fill="var(--color-accent)"/>
+                <circle cx="158" cy="48" r="8" fill="none" stroke="var(--color-accent)" stroke-width="0.8" opacity="0.4"/>
+            </svg>
+            <div class="drawing-caption">hay mapas que se leen con la piel</div>
+        </div>
+
+        <div class="prose">
+            <p>Sin embargo, a veces lo que llamó la atención al cartógrafo pudo no haber sido algo físico, y es cuando los mapas pasan a convertirse en esbozos de aquello que se pudo sentir en ese lugar.</p>
+            <p>Un olor que te devolvió a un verano que creías olvidado. Una canción que sonaba en una esquina que ya no existe. El peso exacto de una mano sobre tu hombro en el momento justo.</p>
+        </div>
+
+        <div class="separator">~ ~ ~</div>
+
+        <div class="highlight-box">
+            <p style="text-align: center;">
+                Hay mapas de todas las formas y sabores,<br>
+                pero todo mapa demarca una historia<br>
+                real o imaginaria<br>
+                de aquello que recordamos o queremos pensar.
+            </p>
+        </div>
+
+        <div class="prose">
+            <p>Y quizás eso es lo más hermoso de la cartografía personal: que no necesita ser precisa. No necesita escala ni leyenda. Solo necesita ser honesta.</p>
+            <p>Porque al final, el mapa más importante que vas a trazar es el que llevas adentro: ese registro desordenado y precioso de todo lo que te ha hecho ser quien eres.</p>
+        </div>
+
+        <div class="verse-quote">
+            "Caminante, el camino son tus huellas y nada más."
+        </div>
+
+        <!-- Footprints path -->
+        <div class="drawing">
+            <svg width="300" height="100" style="margin: 0 auto; display: block;">
+                <circle cx="25" cy="75" r="3.5" fill="var(--color-accent)" opacity="0.25"/>
+                <circle cx="35" cy="65" r="3" fill="var(--color-accent)" opacity="0.25"/>
+                <circle cx="65" cy="60" r="3.5" fill="var(--color-accent)" opacity="0.35"/>
+                <circle cx="75" cy="50" r="3" fill="var(--color-accent)" opacity="0.35"/>
+                <circle cx="110" cy="52" r="3.5" fill="var(--color-accent)" opacity="0.45"/>
+                <circle cx="120" cy="42" r="3" fill="var(--color-accent)" opacity="0.45"/>
+                <circle cx="155" cy="44" r="3.5" fill="var(--color-accent)" opacity="0.55"/>
+                <circle cx="165" cy="35" r="3" fill="var(--color-accent)" opacity="0.55"/>
+                <circle cx="200" cy="38" r="4" fill="var(--color-accent)" opacity="0.7"/>
+                <circle cx="210" cy="28" r="3.5" fill="var(--color-accent)" opacity="0.7"/>
+                <circle cx="245" cy="32" r="4" fill="var(--color-accent)" opacity="0.85"/>
+                <circle cx="255" cy="23" r="3.5" fill="var(--color-accent)" opacity="0.85"/>
+                <circle cx="278" cy="20" r="2" fill="var(--color-accent)" opacity="0.4"/>
+                <circle cx="288" cy="15" r="1.5" fill="var(--color-accent)" opacity="0.25"/>
+                <circle cx="296" cy="12" r="1" fill="var(--color-accent)" opacity="0.15"/>
+            </svg>
+            <div class="drawing-caption">buenas huellas</div>
+        </div>
+
+        <!-- Interactive fog-of-war explorer game -->
+        <div class="game-section">
+            <p style="color: var(--color-text-muted); font-size: 0.95rem; margin-bottom: var(--space-md);">
+                Hay un mapa escondido bajo la niebla.<br>Explóralo y descubre las memorias ocultas.
+            </p>
+            <canvas id="explorer-canvas" width="400" height="380"></canvas>
+            <p class="game-hint">[ arrastra para explorar la niebla ]</p>
+            <p class="game-counter" id="game-counter">Memorias descubiertas: 0 / 7</p>
+            <p class="game-message" id="game-message">Tu mapa está completo. Pero nunca deja de dibujarse.</p>
+        </div>
+    </div>
+
+    <div class="signature">
+        <p style="color: var(--color-text-muted); font-style: italic;">Eugenio Cruz Ossa</p>
+    </div>
+
+    <script>
+    (function() {
+        var canvas = document.getElementById('explorer-canvas');
+        var ctx = canvas.getContext('2d');
+        var W = canvas.width;
+        var H = canvas.height;
+
+        // Fog canvas (overlay)
+        var fogCanvas = document.createElement('canvas');
+        fogCanvas.width = W;
+        fogCanvas.height = H;
+        var fogCtx = fogCanvas.getContext('2d');
+
+        // Fill fog with background color
+        fogCtx.fillStyle = '#1a1a1a';
+        fogCtx.fillRect(0, 0, W, H);
+
+        // Add subtle noise texture to fog
+        for (var i = 0; i < 3000; i++) {
+            var nx = Math.random() * W;
+            var ny = Math.random() * H;
+            fogCtx.fillStyle = 'rgba(255, 107, 53, ' + (Math.random() * 0.03) + ')';
+            fogCtx.fillRect(nx, ny, 1, 1);
+        }
+
+        // Hidden memories
+        var memories = [
+            { x: 70,  y: 60,  text: 'aquí fui feliz',        found: false, pulse: 0 },
+            { x: 320, y: 80,  text: 'aquí me perdí',          found: false, pulse: 0 },
+            { x: 200, y: 180, text: 'aquí volví',             found: false, pulse: 0 },
+            { x: 55,  y: 280, text: 'aquí soñé despierto',    found: false, pulse: 0 },
+            { x: 340, y: 260, text: 'aquí conocí a alguien',  found: false, pulse: 0 },
+            { x: 160, y: 320, text: 'aquí dolió',             found: false, pulse: 0 },
+            { x: 280, y: 340, text: 'aquí empezó todo',       found: false, pulse: 0 }
+        ];
+
+        var foundCount = 0;
+        var allFound = false;
+
+        // Pre-generate background contour lines (organic shapes)
+        var contours = [];
+        for (var c = 0; c < 12; c++) {
+            var pts = [];
+            var baseY = 30 + (c / 12) * (H - 60);
+            for (var px = 0; px <= W; px += 20) {
+                pts.push({
+                    x: px,
+                    y: baseY + Math.sin(px * 0.015 + c * 1.3) * 25 + Math.cos(px * 0.008 + c * 0.7) * 15
+                });
+            }
+            contours.push({ points: pts, opacity: 0.04 + (c % 3) * 0.02 });
+        }
+
+        function drawBackground() {
+            // Dark background
+            ctx.fillStyle = '#1a1a1a';
+            ctx.fillRect(0, 0, W, H);
+
+            // Draw contour lines
+            for (var c = 0; c < contours.length; c++) {
+                var con = contours[c];
+                ctx.beginPath();
+                ctx.moveTo(con.points[0].x, con.points[0].y);
+                for (var p = 1; p < con.points.length; p++) {
+                    ctx.lineTo(con.points[p].x, con.points[p].y);
+                }
+                ctx.strokeStyle = 'rgba(255, 107, 53, ' + con.opacity + ')';
+                ctx.lineWidth = 0.8;
+                ctx.stroke();
+            }
+
+            // Draw grid dots
+            for (var gx = 0; gx < W; gx += 40) {
+                for (var gy = 0; gy < H; gy += 40) {
+                    ctx.fillStyle = 'rgba(255, 107, 53, 0.03)';
+                    ctx.fillRect(gx, gy, 1, 1);
+                }
+            }
+
+            // Draw memory points
+            for (var i = 0; i < memories.length; i++) {
+                var m = memories[i];
+
+                // Outer glow
+                ctx.beginPath();
+                ctx.arc(m.x, m.y, 22 + Math.sin(m.pulse) * 3, 0, Math.PI * 2);
+                ctx.fillStyle = 'rgba(255, 107, 53, 0.06)';
+                ctx.fill();
+
+                // Ring
+                ctx.beginPath();
+                ctx.arc(m.x, m.y, 14, 0, Math.PI * 2);
+                ctx.strokeStyle = m.found ? 'rgba(255, 107, 53, 0.5)' : 'rgba(255, 107, 53, 0.15)';
+                ctx.lineWidth = 1;
+                ctx.stroke();
+
+                // Inner dot
+                ctx.beginPath();
+                ctx.arc(m.x, m.y, 4, 0, Math.PI * 2);
+                ctx.fillStyle = m.found ? 'rgba(255, 107, 53, 0.9)' : 'rgba(255, 107, 53, 0.3)';
+                ctx.fill();
+
+                // Text label
+                if (m.found) {
+                    ctx.font = '11px Arial';
+                    ctx.fillStyle = 'rgba(255, 163, 102, 0.9)';
+                    ctx.textAlign = 'center';
+                    ctx.fillText(m.text, m.x, m.y + 28);
+                }
+
+                m.pulse += 0.05;
+            }
+
+            // Mini compass in corner
+            var cx = W - 30;
+            var cy = 30;
+            ctx.beginPath();
+            ctx.arc(cx, cy, 15, 0, Math.PI * 2);
+            ctx.strokeStyle = 'rgba(255, 107, 53, 0.15)';
+            ctx.lineWidth = 0.5;
+            ctx.stroke();
+            ctx.beginPath();
+            ctx.moveTo(cx, cy);
+            ctx.lineTo(cx, cy - 12);
+            ctx.strokeStyle = 'rgba(255, 107, 53, 0.3)';
+            ctx.lineWidth = 1;
+            ctx.stroke();
+            ctx.font = '7px Arial';
+            ctx.fillStyle = 'rgba(255, 107, 53, 0.3)';
+            ctx.textAlign = 'center';
+            ctx.fillText('N', cx, cy - 16);
+        }
+
+        function clearFog(x, y) {
+            fogCtx.globalCompositeOperation = 'destination-out';
+            var gradient = fogCtx.createRadialGradient(x, y, 0, x, y, 35);
+            gradient.addColorStop(0, 'rgba(0,0,0,0.7)');
+            gradient.addColorStop(0.6, 'rgba(0,0,0,0.3)');
+            gradient.addColorStop(1, 'rgba(0,0,0,0)');
+            fogCtx.fillStyle = gradient;
+            fogCtx.beginPath();
+            fogCtx.arc(x, y, 35, 0, Math.PI * 2);
+            fogCtx.fill();
+            fogCtx.globalCompositeOperation = 'source-over';
+
+            // Check proximity to memories
+            for (var i = 0; i < memories.length; i++) {
+                var m = memories[i];
+                if (!m.found) {
+                    var dx = x - m.x;
+                    var dy = y - m.y;
+                    var dist = Math.sqrt(dx * dx + dy * dy);
+                    if (dist < 28) {
+                        m.found = true;
+                        foundCount++;
+                        updateCounter();
+
+                        // Clear more fog around found memory
+                        fogCtx.globalCompositeOperation = 'destination-out';
+                        var glow = fogCtx.createRadialGradient(m.x, m.y, 0, m.x, m.y, 50);
+                        glow.addColorStop(0, 'rgba(0,0,0,1)');
+                        glow.addColorStop(1, 'rgba(0,0,0,0)');
+                        fogCtx.fillStyle = glow;
+                        fogCtx.beginPath();
+                        fogCtx.arc(m.x, m.y, 50, 0, Math.PI * 2);
+                        fogCtx.fill();
+                        fogCtx.globalCompositeOperation = 'source-over';
+                    }
+                }
+            }
+        }
+
+        function updateCounter() {
+            var counter = document.getElementById('game-counter');
+            counter.textContent = 'Memorias descubiertas: ' + foundCount + ' / 7';
+            if (foundCount === 7 && !allFound) {
+                allFound = true;
+                counter.classList.add('complete');
+                var msg = document.getElementById('game-message');
+                msg.classList.add('visible');
+            }
+        }
+
+        function render() {
+            drawBackground();
+            ctx.drawImage(fogCanvas, 0, 0);
+            requestAnimationFrame(render);
+        }
+
+        function getPos(e) {
+            var rect = canvas.getBoundingClientRect();
+            var scaleX = W / rect.width;
+            var scaleY = H / rect.height;
+            var clientX, clientY;
+            if (e.touches) {
+                clientX = e.touches[0].clientX;
+                clientY = e.touches[0].clientY;
+            } else {
+                clientX = e.clientX;
+                clientY = e.clientY;
+            }
+            return {
+                x: (clientX - rect.left) * scaleX,
+                y: (clientY - rect.top) * scaleY
+            };
+        }
+
+        var isDrawing = false;
+
+        canvas.addEventListener('mousedown', function(e) {
+            isDrawing = true;
+            var pos = getPos(e);
+            clearFog(pos.x, pos.y);
+        });
+
+        canvas.addEventListener('mousemove', function(e) {
+            if (!isDrawing) return;
+            var pos = getPos(e);
+            clearFog(pos.x, pos.y);
+        });
+
+        canvas.addEventListener('mouseup', function() { isDrawing = false; });
+        canvas.addEventListener('mouseleave', function() { isDrawing = false; });
+
+        canvas.addEventListener('touchstart', function(e) {
+            e.preventDefault();
+            isDrawing = true;
+            var pos = getPos(e);
+            clearFog(pos.x, pos.y);
+        });
+
+        canvas.addEventListener('touchmove', function(e) {
+            e.preventDefault();
+            if (!isDrawing) return;
+            var pos = getPos(e);
+            clearFog(pos.x, pos.y);
+        });
+
+        canvas.addEventListener('touchend', function() { isDrawing = false; });
+
+        render();
+    })();
+    </script>
+
+    <script src="../theme.js"></script>
+    <script src="../i18n.js"></script>
+</body>
+</html>
