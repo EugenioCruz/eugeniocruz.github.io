@@ -149,6 +149,12 @@
         .photo-description {
             font-size: 0.9rem;
             color: var(--color-text);
+            overflow-wrap: break-word;
+            word-wrap: break-word;
+        }
+
+        .photo-overlay {
+            padding-bottom: calc(var(--space-md) + 4px);
         }
 
         /* Lightbox */
@@ -169,7 +175,7 @@
 
         .lightbox-content {
             max-width: 90%;
-            max-height: 90%;
+            max-height: 90vh;
             position: relative;
             display: flex;
             flex-direction: column;
@@ -178,7 +184,8 @@
 
         .lightbox-content img {
             max-width: 100%;
-            max-height: 85vh;
+            min-height: 0;
+            flex: 1 1 auto;
             object-fit: contain;
             display: block;
         }
@@ -187,6 +194,7 @@
             text-align: center;
             margin-top: var(--space-md);
             max-width: 600px;
+            flex-shrink: 0;
         }
 
         .lightbox-close {
@@ -316,6 +324,42 @@
         <p class="subtitle">Captured moments from my adventures and travels</p>
 
         <div class="gallery" id="gallery">
+            <div class="photo-card" data-date="Marzo 2026" data-description="El Sena al atardecer con Notre-Dame de fondo, París. Quedándome con Iván">
+                <img src="photos/IMG_1349.JPG" alt="Photo">
+                <div class="photo-overlay"><div class="photo-date"></div><div class="photo-description"></div></div>
+            </div>
+            <div class="photo-card" data-date="Marzo 2026" data-description="Torre Eiffel desde el Champ de Mars, París. Quedándome con Iván">
+                <img src="photos/IMG_1268.JPG" alt="Photo">
+                <div class="photo-overlay"><div class="photo-date"></div><div class="photo-description"></div></div>
+            </div>
+            <div class="photo-card" data-date="Marzo 2026" data-description="Torre Eiffel, París. Quedándome con Iván">
+                <img src="photos/IMG_1377.JPG" alt="Photo">
+                <div class="photo-overlay"><div class="photo-date"></div><div class="photo-description"></div></div>
+            </div>
+            <div class="photo-card" data-date="Marzo 2026" data-description="París, Francia. Atardecer dorado en las calles. Quedándome con Iván">
+                <img src="photos/IMG_1343.JPG" alt="Photo">
+                <div class="photo-overlay"><div class="photo-date"></div><div class="photo-description"></div></div>
+            </div>
+            <div class="photo-card" data-date="Marzo 2026" data-description="El palacio de Luxemburgo desde sus jardines. Quedándome con Iván">
+                <img src="photos/IMG_1328.JPG" alt="Photo">
+                <div class="photo-overlay"><div class="photo-date"></div><div class="photo-description"></div></div>
+            </div>
+            <div class="photo-card" data-date="Marzo 2026" data-description="Rue Crémieux, París. Quedándome con Iván">
+                <img src="photos/IMG_1353.JPG" alt="Photo">
+                <div class="photo-overlay"><div class="photo-date"></div><div class="photo-description"></div></div>
+            </div>
+            <div class="photo-card" data-date="Marzo 2026" data-description="Auroras boreales en Tromsø, Noruega. Un sueño cumplido">
+                <img src="photos/IMG_0958.JPG" alt="Photo">
+                <div class="photo-overlay"><div class="photo-date"></div><div class="photo-description"></div></div>
+            </div>
+            <div class="photo-card" data-date="Marzo 2026" data-description="Catedral Ártica, Tromsø, Noruega. Viaje solo al norte">
+                <img src="photos/IMG_0562.JPG" alt="Photo">
+                <div class="photo-overlay"><div class="photo-date"></div><div class="photo-description"></div></div>
+            </div>
+            <div class="photo-card" data-date="Marzo 2026" data-description="Río cerca de mi casa en Lausanne, muy bonito">
+                <img src="photos/IMG_0154.JPG" alt="Photo">
+                <div class="photo-overlay"><div class="photo-date"></div><div class="photo-description"></div></div>
+            </div>
             <div class="photo-card" data-date="Enero 2026" data-description="Gruyère, Suiza. Una foto del pueblo original del famoso queso que lleva su nombre. Recorrido con mis papás un día que estaba nevando: muy lindo todo">
                 <img src="photos/IMG_8859.JPG" alt="Photo">
                 <div class="photo-overlay"><div class="photo-date"></div><div class="photo-description"></div></div>
@@ -328,7 +372,7 @@
                 <img src="photos/IMG_9036.JPG" alt="Photo">
                 <div class="photo-overlay"><div class="photo-date"></div><div class="photo-description"></div></div>
             </div>
-            <div class="photo-card" data-date="" data-description="Annecy, Francia. Me encantaron los colores: Recorrido con mis papás">
+            <div class="photo-card" data-date="Enero 2026" data-description="Annecy, Francia. Me encantaron los colores: Recorrido con mis papás">
                 <img src="photos/IMG_9047.JPG" alt="Photo">
                 <div class="photo-overlay"><div class="photo-date"></div><div class="photo-description"></div></div>
             </div>
