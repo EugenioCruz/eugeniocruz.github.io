@@ -2,7 +2,7 @@
 const translations = {
     en: {
         // Index page
-        tagline: "Co-founder & Lead Data Scientist at Teapot<br>MSc in Engineering Sciences from PUC Chile<br>Visiting Researcher at EPFL",
+        tagline: "Quant Researcher at LarrainVial Asset Management<br>Co-founder & Lead Data Scientist at Teapot<br>MSc in Engineering Sciences from PUC Chile",
         aboutMe: "about me",
         interests: {
             algorithms: "Online Algorithms",
@@ -16,6 +16,8 @@ const translations = {
         },
         timeline: {
             title: "What I've been up to",
+            larrainvial: "Quant Researcher at LarrainVial Asset Management",
+            larrainvialDesc: "Building LLM-driven investment signals for the quantitative team",
             epfl: "Research at EPFL",
             epflDesc: "online algorithms for matching",
             advisor: "Advisor",
@@ -36,11 +38,9 @@ const translations = {
         bio: {
             title: "About",
             yearsOld: "years old, from Santiago, Chile",
-            paragraph1: "I'm a Chilean researcher and data scientist currently based in Switzerland, where I'm a visiting researcher at EPFL working on online algorithms for matching problems. Back home, I'm co-founder and Lead Data Scientist at Teapot, where we're building data-driven solutions for the education sector, optimizing and digitalizing learning through artificial intelligence. I hold a Master's degree in Engineering Sciences with a diploma in Industrial Engineering and Systems from Pontificia Universidad Católica de Chile. I also graduated with summa cum laude from Mathematical & Computational Engineering, earning recognition as the best student of my specialty. My thesis focused on online algorithms with applications in pricing.",
-            paragraph2: "Mathematics has always been my true passion. I'm particularly fascinated by stochastic processes, optimization, and graph theory. I love working on applicable frameworks and the techniques used in these areas.",
-            paragraph3: "I consider myself a pretty calm person who always tries to keep composure, even in challenging situations. Outside of work, I'm drawn to the outdoors, camping, and sports. Rock climbing has introduced me to incredible people who have made me very happy 💚. I grew up with a deep love for water skiing and it was my passion throughout my youth, and I even competed in Chile. I was also part of Club Andes ski team at La Parva Center as a kid. Nowadays, snow skiing has become more of a family tradition that I cherish. I love animals and enjoy going camping whenever I get the chance to disconnect and immerse myself in nature with my friends.",
-            paragraph4: "When I'm not doing math or climbing, you'll probably find me binge-watching series or listening to music. I also really enjoy good food: in my house there's always been good cooking and I hope to follow those steps, Yum!",
-            paragraph5: "I love photos, board games: especially Hive, which is hands down my favorite game. There's something about its strategy and aesthetics that I love."
+            paragraph1: "I'm a Chilean data scientist, recently back in Santiago after a research stay at EPFL in Switzerland, where I worked on online algorithms for matching problems. I'm now joining LarrainVial Asset Management as a quant researcher. My role is to use LLMs to find investment signals. In parallel, I'm co-founder and Lead Data Scientist at Teapot, where we build data-driven solutions for the education sector, optimizing and digitalizing learning through artificial intelligence. I hold a Master's degree in Engineering Sciences with a diploma in Industrial Engineering and Systems from Pontificia Universidad Católica de Chile. I also graduated summa cum laude from Mathematical & Computational Engineering, earning recognition as the best student of my specialty. My thesis focused on online algorithms with applications in pricing.",
+            paragraph2: "Mathematics has always been my true passion. I'm particularly focused on stochastic processes, optimization, and graph theory. I love working on applicable frameworks and the techniques used in these areas.",
+            paragraph3: "I consider myself a very calm person who always tries to keep composure, even in challenging situations. Outside of work, I'm drawn to the outdoors, camping, and sports. Rock climbing has introduced me to incredible people who have made me very happy 💚. I grew up with a deep love for water skiing and it was my passion throughout my youth, and I even competed in Chile. I was also part of the Club Andes ski team at La Parva Center as a kid. Nowadays, snow skiing has become more of a family tradition that I cherish. I love animals and enjoy going camping whenever I get the chance to disconnect and be in nature with my friends."
         },
 
         // Now page
@@ -48,22 +48,19 @@ const translations = {
             title: "What I'm doing now",
             lastUpdated: "Last updated",
             intro: "This is a \"now page\" inspired by Derek Sivers. It's a snapshot of what I'm currently focused on in my life.",
-            researchWork: "Research & Work",
-            researchWorkText1: "Finishing up my time at EPFL in Lausanne, Switzerland, working on online algorithms for matching problems with Andrés Cristi. In April I'm heading back to Santiago to start as a Data Scientist at LarrainVial, in the Asset Management team as an equity analyst.",
-            researchWorkText2: "Simultaneously working remotely as co-founder and Lead Data Scientist at Teapot in Chile, where we're building data science solutions for the education sector, optimizing and digitalizing learning.",
-            learning: "Learning & Reading",
-            learningItem1: "Research: Currently reading topics related to The Power of Greedy for Online Minimum Cost Matching on the Line",
-            learningItem2: "Books: Reading \"El libro de arena\" by Jorge Luis Borges",
-            learningItem3: "Exploring topics in online algorithms and stochastic optimization",
-            enjoying: "Currently Enjoying",
-            enjoyingItem1: "Watching: Suits (rewatching!)",
-            enjoyingItem2: "Playing: Hive (always!)",
-            enjoyingItem3: "Listening: Check my Spotify for my current rotation",
+            work: "Work",
+            workText1: "Just landed back in Santiago, Chile and starting a new chapter at LarrainVial, in the Asset Management quantitative team. My role is to use LLMs to find investment signals. I'm genuinely excited about everything that could be built at the intersection of finance and LLMs, and this feels like the right moment to be doing it.",
+            workText2: "In parallel, I keep working remotely as co-founder and Lead Data Scientist at Teapot, where we're building data-driven solutions for the education sector, optimizing and digitalizing learning through artificial intelligence.",
+            focus: "Focus & Goals",
+            focusItem1: "Climbing: Back on the wall and loving every minute of it. Spending time with my climbing friends has been one of the best parts of being home, and getting strong again is one of my main goals this season.",
+            focusItem2: "Cooking: Finally giving cooking the attention it deserves. Want to build a real practice around it: trying new recipes, learning techniques, and enjoying the process of feeding the people I love.",
+            focusItem3: "LLMs in finance: Diving deep into how language models can surface investment signals. The space feels wide open and I'm excited to explore it.",
             adventures: "Adventures",
-            adventuresText: "Making the most of my last weeks in Switzerland. Recently traveled solo to Tromsø, Norway, where I saw the northern lights (a dream come true!), and visited Paris staying with my friend Iván. Also explored Grindelwald, Interlaken, and Zermatt to see the Matterhorn. Before that, visited Geneva, Gruyères, and Annecy. Documenting everything through photography.",
+            adventuresText: "Reconnecting with the Chilean mountains. Recently hiked up to la Silla del Diablo in Cajón del Maipo, an incredible spot that reminded me how lucky I am to have the Andes in my backyard. Next on the list: a trip down south to Siete Tazas, which I've been wanting to visit for ages. As always, documenting it all through photography.",
+            home: "Home",
+            homeText: "After a couple of months abroad, being back close to my family and friends feels like a soft landing. Long sobremesas, weekend asados, climbing sessions and slow Sundays. I'm trying not to take any of it for granted.",
             stats: "Stats",
             countriesVisited: "Countries visited",
-            hiveGames: "Hive games played",
             yearsOld: "Years old",
             countriesTitle: "Countries I've visited"
         },
@@ -84,7 +81,7 @@ const translations = {
 
     es: {
         // Index page
-        tagline: "Cofundador y Lead Data Scientist en Teapot<br>Magíster en Ciencias de la Ingeniería PUC Chile<br>Investigador Visitante en EPFL",
+        tagline: "Quant Researcher en LarrainVial Asset Management<br>Cofundador y Lead Data Scientist en Teapot<br>Magíster en Ciencias de la Ingeniería PUC Chile",
         aboutMe: "sobre mí",
         interests: {
             algorithms: "Algoritmos en Línea",
@@ -98,6 +95,8 @@ const translations = {
         },
         timeline: {
             title: "En qué he estado trabajando",
+            larrainvial: "Quant Researcher en LarrainVial Asset Management",
+            larrainvialDesc: "Construyendo señales de inversión con LLMs en el equipo cuantitativo",
             epfl: "Investigación en EPFL",
             epflDesc: "algoritmos en línea para matching",
             advisor: "Asesor",
@@ -118,11 +117,9 @@ const translations = {
         bio: {
             title: "Acerca de",
             yearsOld: "años, de Santiago, Chile",
-            paragraph1: "Soy un investigador y científico de datos chileno actualmente en Suiza, donde soy investigador visitante en EPFL trabajando en algoritmos en línea para problemas de matching. En casa, soy cofundador y Lead Data Scientist en Teapot, donde estamos construyendo soluciones data-driven para el sector educativo, optimizando y digitalizando el aprendizaje mediante inteligencia artificial. Tengo un Magíster en Ciencias de la Ingeniería con diploma en Ingeniería Industrial y Sistemas de la Pontificia Universidad Católica de Chile. También me titulé con summa cum laude de Ingeniería Matemática y Computacional, obteniendo el reconocimiento como mejor estudiante de la especialidad. Mi tesis se enfocó en algoritmos en línea con aplicaciones en pricing.",
-            paragraph2: "Las matemáticas siempre han sido mi verdadera pasión. Estoy particularmente fascinado por procesos estocásticos, optimización y teoría de grafos. Me encanta trabajar en marcos aplicables y las técnicas que se usan en estas áreas.",
-            paragraph3: "Me considero una persona bastante tranquila que siempre intenta mantener la compostura, incluso en situaciones desafiantes. Fuera del trabajo, me atrae el aire libre, el camping y el deporte. La escalada me ha presentado a personas increíbles que me han hecho muy feliz 💚. Crecí con un profundo amor por el esquí acuático y fue mi pasión durante mi juventud, e incluso competía en Chile. También fui parte del equipo de esquí Club Andes en el centro La Parva cuando era niño. Hoy en día, el esquí en nieve se ha convertido más en una tradición familiar que aprecio. Amo a los animales y disfruto ir de camping cada vez que tengo la oportunidad de desconectarme y sumergirme en la naturaleza junto a mis amigos.",
-            paragraph4: "Cuando no estoy haciendo matemáticas o escalando, probablemente me encontrarás viendo series en maratón o escuchando música. También disfruto mucho de la buena comida: en mi casa siempre se ha cocinado bien y espero seguir esos pasos, Yom!",
-            paragraph5: "Me encantan las fotos y los juegos de mesa, en especial Hive, que es sin duda mi juego favorito. Hay algo en su estrategia y estética que me encanta."
+            paragraph1: "Soy un científico de datos chileno, recién de vuelta en Santiago tras una estadía de investigación en EPFL en Suiza, donde trabajé en algoritmos en línea para problemas de matching. Ahora me estoy integrando a LarrainVial Asset Management como quant researcher. Mi rol es usar LLM's para encontrar señales de inversión. En paralelo, soy cofundador y Lead Data Scientist en Teapot, donde construimos soluciones data-driven para el sector educativo, optimizando y digitalizando el aprendizaje mediante inteligencia artificial. Tengo un Magíster en Ciencias de la Ingeniería con diploma en Ingeniería Industrial y Sistemas de la Pontificia Universidad Católica de Chile. También me titulé con summa cum laude de Ingeniería Matemática y Computacional, obteniendo el reconocimiento como mejor estudiante de la especialidad. Mi tesis se enfocó en algoritmos en línea con aplicaciones en pricing.",
+            paragraph2: "Las matemáticas siempre han sido mi verdadera pasión. Estoy particularmente enfocado en procesos estocásticos, optimización y teoría de grafos. Me encanta trabajar en marcos aplicables y las técnicas que se usan en estas áreas.",
+            paragraph3: "Me considero una persona muy tranquila que siempre intenta mantener la compostura, incluso en situaciones desafiantes. Fuera del trabajo, me atrae el aire libre, el camping y el deporte. La escalada me ha presentado a personas increíbles que me han hecho muy feliz 💚. Crecí con un profundo amor por el esquí acuático y fue mi pasión durante mi juventud, e incluso competía en Chile. También fui parte del equipo de esquí Club Andes en el centro La Parva cuando era niño. Hoy en día, el esquí en nieve se ha convertido más en una tradición familiar que aprecio. Amo a los animales y disfruto ir de camping cada vez que tengo la oportunidad de desconectarme y estar en la naturaleza junto a mis amigos.",
         },
 
         // Now page
@@ -130,22 +127,19 @@ const translations = {
             title: "Qué estoy haciendo ahora",
             lastUpdated: "Última actualización",
             intro: "Esta es una \"página now\" inspirada en Derek Sivers. Consiste en aquello en lo que me estoy enfocando actualmente en mi vida.",
-            researchWork: "Investigación y Trabajo",
-            researchWorkText1: "Terminando mi estadía en EPFL en Lausana, Suiza, trabajando en algoritmos en línea para problemas de matching con Andrés Cristi. En abril vuelvo a Santiago para empezar como Data Scientist en LarrainVial, en el equipo de Asset Management como analista de renta variable.",
-            researchWorkText2: "Simultáneamente trabajando de forma remota como cofundador y Lead Data Scientist en Teapot en Chile, donde estamos construyendo soluciones de data science para el sector educativo, optimizando y digitalizando el aprendizaje.",
-            learning: "Aprendizaje y Lectura",
-            learningItem1: "Investigación: Actualmente leyendo temas relacionados con The Power of Greedy for Online Minimum Cost Matching on the Line",
-            learningItem2: "Libros: Leyendo \"El libro de arena\" de Jorge Luis Borges",
-            learningItem3: "Explorando temas en algoritmos en línea y optimización estocástica",
-            enjoying: "Disfrutando Actualmente",
-            enjoyingItem1: "Viendo: Suits (reviéndola!)",
-            enjoyingItem2: "Jugando: Hive (siempre!)",
-            enjoyingItem3: "Escuchando: Revisa mi Spotify para ver mi rotación actual",
+            work: "Trabajo",
+            workText1: "Recién aterrizado en Santiago, Chile, comenzando un nuevo capítulo en LarrainVial, en el equipo cuantitativo de Asset Management. Mi rol es usar LLM's para encontrar señales de inversión. Estoy genuinamente entusiasmado con todo lo que se podría construir en la intersección de finanzas y LLMs, y siento que es el momento justo para hacerlo.",
+            workText2: "En paralelo, sigo trabajando de forma remota como cofundador y Lead Data Scientist en Teapot, donde estamos construyendo soluciones data-driven para el sector educativo, optimizando y digitalizando el aprendizaje a través de inteligencia artificial.",
+            focus: "Foco y Objetivos",
+            focusItem1: "Escalada: De vuelta en la pared y disfrutando cada minuto. Reencontrarme con mis amigos de escalada ha sido una de las mejores partes de volver a casa, y volver a tomar forma es uno de mis objetivos principales esta temporada.",
+            focusItem2: "Cocina: Por fin darle a la cocina la atención que merece. Quiero armar una práctica real en torno a esto: probar recetas nuevas, aprender técnicas y disfrutar el proceso de alimentar a quienes quiero.",
+            focusItem3: "LLMs en finanzas: Sumergiéndome en cómo los modelos de lenguaje pueden revelar señales de inversión. Es un espacio que se siente muy abierto y tengo muchas ganas de explorarlo.",
             adventures: "Aventuras",
-            adventuresText: "Aprovechando mis últimas semanas en Suiza. Recientemente viajé solo a Tromsø, Noruega, donde vi las auroras boreales (un sueño cumplido!), y visité París quedándome con mi amigo Iván. También exploré Grindelwald, Interlaken y Zermatt para ver el Matterhorn. Antes de eso, visité Ginebra, Gruyères y Annecy. Documentando todo a través de fotitos :).",
+            adventuresText: "Reconectando con la cordillera. Recientemente subí a la Silla del Diablo en el Cajón del Maipo, un lugar increíble que me recordó la suerte de tener los Andes en el patio de la casa. Lo próximo en la lista: bajar al sur a las Siete Tazas, que tengo muchas ganas de conocer hace tiempo. Como siempre, documentando todo a través de fotitos :).",
+            home: "En casa",
+            homeText: "Después de un par de meses afuera, estar de vuelta cerca de mi familia y amigos se siente como un aterrizaje suave. Sobremesas largas, asados de fin de semana, sesiones de escalada y domingos lentos. Estoy intentando no dar nada de eso por sentado.",
             stats: "Estadísticas",
             countriesVisited: "Países visitados",
-            hiveGames: "Juegos de Hive jugados",
             yearsOld: "Años",
             countriesTitle: "Países que he visitado"
         },
@@ -166,7 +160,7 @@ const translations = {
 
     fr: {
         // Index page
-        tagline: "Co-fondateur & Lead Data Scientist chez Teapot<br>Master en Sciences de l'Ingénierie PUC Chile<br>Chercheur Invité à l'EPFL",
+        tagline: "Quant Researcher chez LarrainVial Asset Management<br>Co-fondateur & Lead Data Scientist chez Teapot<br>Master en Sciences de l'Ingénierie PUC Chile",
         aboutMe: "à propos",
         interests: {
             algorithms: "Algorithmes en Ligne",
@@ -180,6 +174,8 @@ const translations = {
         },
         timeline: {
             title: "Ce sur quoi j'ai travaillé",
+            larrainvial: "Quant Researcher chez LarrainVial Asset Management",
+            larrainvialDesc: "Construction de signaux d'investissement à base de LLMs pour l'équipe quantitative",
             epfl: "Recherche à l'EPFL",
             epflDesc: "algorithmes en ligne pour le matching",
             advisor: "Superviseur",
@@ -200,11 +196,9 @@ const translations = {
         bio: {
             title: "À propos",
             yearsOld: "ans, de Santiago, Chili",
-            paragraph1: "Je suis un chercheur et scientifique des données chilien actuellement basé en Suisse, où je suis chercheur invité à l'EPFL travaillant sur des algorithmes en ligne pour des problèmes de matching. Chez moi, je suis cofondateur et Lead Data Scientist chez Teapot, où nous construisons des solutions data-driven pour le secteur de l'éducation, optimisant et digitalisant l'apprentissage grâce à l'intelligence artificielle. Je détiens un Master en Sciences de l'Ingénierie avec un diplôme en Ingénierie Industrielle et Systèmes de l'Université Catholique du Chili. J'ai également obtenu mon diplôme summa cum laude en Ingénierie Mathématique et Computationnelle, obtenant la reconnaissance du meilleur étudiant de ma spécialité. Ma thèse portait sur les algorithmes en ligne avec des applications en pricing.",
-            paragraph2: "Les mathématiques ont toujours été ma véritable passion. Je suis particulièrement fasciné par les processus stochastiques, l'optimisation et la théorie des graphes. J'aime travailler sur des cadres applicables et les techniques utilisées dans ces domaines.",
-            paragraph3: "Je me considère comme une personne plutôt calme qui essaie toujours de garder son sang-froid, même dans des situations difficiles. En dehors du travail, je suis attiré par l'extérieur, le camping et le sport. L'escalade m'a présenté à des gens incroyables qui m'ont rendu très heureux 💚. J'ai grandi avec un amour profond pour le ski nautique et c'était ma passion tout au long de ma jeunesse, et j'ai même participé à des compétitions au Chili. J'ai également fait partie de l'équipe de ski Club Andes au centre La Parva quand j'étais enfant. De nos jours, le ski sur neige est devenu plus une tradition familiale que je chéris. J'aime les animaux et j'apprécie de faire du camping chaque fois que j'ai la chance de me déconnecter et de m'immerger dans la nature avec mes amis.",
-            paragraph4: "Quand je ne fais pas de mathématiques ou d'escalade, vous me trouverez probablement en train de regarder des séries en boucle ou d'écouter de la musique. J'aime aussi vraiment la bonne nourriture : chez moi, on a toujours bien cuisiné et j'espère suivre ces pas, Miam !",
-            paragraph5: "J'adore les photos, les jeux de société : en particulier Hive, qui est sans conteste mon jeu préféré. Il y a quelque chose dans sa stratégie et son esthétique que j'adore."
+            paragraph1: "Je suis un scientifique des données chilien, récemment de retour à Santiago après un séjour de recherche à l'EPFL en Suisse, où j'ai travaillé sur des algorithmes en ligne pour des problèmes de matching. Je rejoins maintenant LarrainVial Asset Management en tant que quant researcher. Mon rôle est d'utiliser des LLMs pour trouver des signaux d'investissement. En parallèle, je suis cofondateur et Lead Data Scientist chez Teapot, où nous construisons des solutions data-driven pour le secteur de l'éducation, optimisant et digitalisant l'apprentissage grâce à l'intelligence artificielle. Je détiens un Master en Sciences de l'Ingénierie avec un diplôme en Ingénierie Industrielle et Systèmes de l'Université Catholique du Chili. J'ai également obtenu mon diplôme summa cum laude en Ingénierie Mathématique et Computationnelle, obtenant la reconnaissance du meilleur étudiant de ma spécialité. Ma thèse portait sur les algorithmes en ligne avec des applications en pricing.",
+            paragraph2: "Les mathématiques ont toujours été ma véritable passion. Je suis particulièrement concentré sur les processus stochastiques, l'optimisation et la théorie des graphes. J'aime travailler sur des cadres applicables et les techniques utilisées dans ces domaines.",
+            paragraph3: "Je me considère comme une personne très calme qui essaie toujours de garder son sang-froid, même dans des situations difficiles. En dehors du travail, je suis attiré par l'extérieur, le camping et le sport. L'escalade m'a présenté à des gens incroyables qui m'ont rendu très heureux 💚. J'ai grandi avec un amour profond pour le ski nautique et c'était ma passion tout au long de ma jeunesse, et j'ai même participé à des compétitions au Chili. J'ai également fait partie de l'équipe de ski Club Andes au centre La Parva quand j'étais enfant. De nos jours, le ski sur neige est devenu plus une tradition familiale que je chéris. J'aime les animaux et j'apprécie de faire du camping chaque fois que j'ai la chance de me déconnecter et d'être dans la nature avec mes amis."
         },
 
         // Now page
@@ -212,22 +206,19 @@ const translations = {
             title: "Ce que je fais maintenant",
             lastUpdated: "Dernière mise à jour",
             intro: "Ceci est une \"page now\" inspirée par Derek Sivers. C'est un instantané de ce sur quoi je me concentre actuellement dans ma vie.",
-            researchWork: "Recherche et Travail",
-            researchWorkText1: "Je termine mon séjour à l'EPFL à Lausanne, en Suisse, travaillant sur des algorithmes en ligne pour des problèmes de matching avec Andrés Cristi. En avril, je rentre à Santiago pour commencer en tant que Data Scientist chez LarrainVial, dans l'équipe Asset Management comme analyste actions.",
-            researchWorkText2: "Simultanément, je travaille à distance en tant que cofondateur et Lead Data Scientist chez Teapot au Chili, où nous construisons des solutions de data science pour le secteur de l'éducation, optimisant et digitalisant l'apprentissage.",
-            learning: "Apprentissage et Lecture",
-            learningItem1: "Recherche : Actuellement en train de lire des sujets liés à The Power of Greedy for Online Minimum Cost Matching on the Line",
-            learningItem2: "Livres : Lecture de \"El libro de arena\" de Jorge Luis Borges",
-            learningItem3: "Exploration de sujets en algorithmes en ligne et optimisation stochastique",
-            enjoying: "Profiter Actuellement",
-            enjoyingItem1: "En train de regarder : Suits (je la revois !)",
-            enjoyingItem2: "En train de jouer : Hive (toujours !)",
-            enjoyingItem3: "En train d'écouter : Consultez mon Spotify pour ma rotation actuelle",
+            work: "Travail",
+            workText1: "Tout juste rentré à Santiago, au Chili, j'entame un nouveau chapitre chez LarrainVial, dans l'équipe quantitative d'Asset Management. Mon rôle est d'utiliser des LLMs pour trouver des signaux d'investissement. Je suis vraiment enthousiasmé par tout ce qui pourrait être construit à l'intersection de la finance et des LLMs, et j'ai l'impression que c'est le bon moment pour le faire.",
+            workText2: "En parallèle, je continue à travailler à distance en tant que cofondateur et Lead Data Scientist chez Teapot, où nous construisons des solutions data-driven pour le secteur de l'éducation, optimisant et digitalisant l'apprentissage grâce à l'intelligence artificielle.",
+            focus: "Focus et Objectifs",
+            focusItem1: "Escalade : De retour sur le mur et j'adore chaque minute. Retrouver mes amis grimpeurs a été l'une des meilleures parties du retour à la maison, et reprendre la forme est l'un de mes principaux objectifs cette saison.",
+            focusItem2: "Cuisine : Enfin donner à la cuisine l'attention qu'elle mérite. Je veux construire une vraie pratique autour de cela : essayer de nouvelles recettes, apprendre des techniques et apprécier le processus de nourrir ceux que j'aime.",
+            focusItem3: "LLMs en finance : Plonger en profondeur dans la façon dont les modèles de langage peuvent révéler des signaux d'investissement. L'espace semble grand ouvert et j'ai hâte de l'explorer.",
             adventures: "Aventures",
-            adventuresText: "Je profite de mes dernières semaines en Suisse. J'ai récemment voyagé seul à Tromsø, en Norvège, où j'ai vu les aurores boréales (un rêve devenu réalité !), et j'ai visité Paris en séjournant chez mon ami Iván. J'ai aussi exploré Grindelwald, Interlaken et Zermatt pour voir le Cervin. Avant cela, j'ai visité Genève, Gruyères et Annecy. Je documente tout par des photos :).",
+            adventuresText: "Reconnexion avec les montagnes chiliennes. Récemment, j'ai randonné jusqu'à la Silla del Diablo dans le Cajón del Maipo, un endroit incroyable qui m'a rappelé la chance d'avoir les Andes dans le jardin. Prochain sur la liste : un voyage au sud aux Siete Tazas, que je veux visiter depuis longtemps. Comme toujours, je documente tout par la photographie.",
+            home: "À la maison",
+            homeText: "Après quelques mois à l'étranger, être de retour près de ma famille et de mes amis est comme un atterrissage en douceur. De longues sobremesas, des asados de week-end, des sessions d'escalade et des dimanches lents. J'essaie de ne rien prendre pour acquis.",
             stats: "Statistiques",
             countriesVisited: "Pays visités",
-            hiveGames: "Parties de Hive jouées",
             yearsOld: "Ans",
             countriesTitle: "Pays que j'ai visités"
         },
@@ -318,30 +309,23 @@ function updateIndexPage(t) {
         const textDiv = item.querySelector('div');
         const dateSpan = item.querySelector('.date');
 
-        if (index === 0) { // EPFL Research
-            const link = textDiv.querySelector('a');
-            const advisorLink = textDiv.querySelector('span a');
-            if (link && advisorLink) {
-                textDiv.innerHTML = `<a href="https://www.epfl.ch/en/" target="_blank" rel="noopener">${t.timeline.epfl}</a>: ${t.timeline.epflDesc}<br><span style="font-size: 0.9em; color: var(--color-text-muted);">${t.timeline.advisor}: <a href="https://sites.google.com/view/andres-cristi" target="_blank" rel="noopener">Andrés Cristi</a></span>`;
-            }
-            if (dateSpan) dateSpan.textContent = t.timeline.ongoing;
-        } else if (index === 1) { // MSc
-            const link = textDiv.querySelector('a');
-            const advisorLink = textDiv.querySelector('span a');
-            if (link && advisorLink) {
-                textDiv.innerHTML = `<a href="https://www.uc.cl/" target="_blank" rel="noopener">${t.timeline.msc}</a><br><span style="font-size: 0.9em; color: var(--color-text-muted);">${t.timeline.mscDesc} | ${t.timeline.advisor}: <a href="https://sites.google.com/view/victor-verdugo" target="_blank" rel="noopener">Víctor Verdugo</a></span>`;
-            }
-        } else if (index === 2) { // Graduated
+        if (index === 0) { // LarrainVial
+            textDiv.innerHTML = `<a href="https://www.larrainvial.com/" target="_blank" rel="noopener">${t.timeline.larrainvial}</a><br><span style="font-size: 0.9em; color: var(--color-text-muted);">${t.timeline.larrainvialDesc}</span>`;
+        } else if (index === 1) { // EPFL Research
+            textDiv.innerHTML = `<a href="https://www.epfl.ch/en/" target="_blank" rel="noopener">${t.timeline.epfl}</a>: ${t.timeline.epflDesc}<br><span style="font-size: 0.9em; color: var(--color-text-muted);">${t.timeline.advisor}: <a href="https://sites.google.com/view/andres-cristi" target="_blank" rel="noopener">Andrés Cristi</a></span>`;
+        } else if (index === 2) { // MSc
+            textDiv.innerHTML = `<a href="https://www.uc.cl/" target="_blank" rel="noopener">${t.timeline.msc}</a><br><span style="font-size: 0.9em; color: var(--color-text-muted);">${t.timeline.mscDesc} | ${t.timeline.advisor}: <a href="https://sites.google.com/view/victor-verdugo" target="_blank" rel="noopener">Víctor Verdugo</a></span>`;
+        } else if (index === 3) { // Graduated
             textDiv.innerHTML = `${t.timeline.graduated}<br><span style="font-size: 0.9em; color: var(--color-text-muted);">${t.timeline.graduatedDesc}</span>`;
-        } else if (index === 3) { // Thesis
+        } else if (index === 4) { // Thesis
             textDiv.textContent = t.timeline.thesis;
-        } else if (index === 4) { // Teapot
+        } else if (index === 5) { // Teapot
             const link = textDiv.querySelector('a');
             if (link) {
                 textDiv.innerHTML = `<a href="https://teapot.cl/" target="_blank" rel="noopener">${t.timeline.teapot}</a><br><span style="font-size: 0.9em; color: var(--color-text-muted);">${t.timeline.teapotDesc}</span>`;
             }
             if (dateSpan) dateSpan.textContent = t.timeline.ongoing;
-        } else if (index === 5) { // Research started
+        } else if (index === 6) { // Research started
             textDiv.textContent = t.timeline.research;
         }
     });
@@ -366,17 +350,14 @@ function updateBioPage(t) {
 
     // Update bio paragraphs
     const bioParagraphs = document.querySelectorAll('.bio p');
-    if (bioParagraphs.length >= 5) {
-        // Paragraph 1 - preserve EPFL and Teapot highlights
+    if (bioParagraphs.length >= 3) {
+        // Paragraph 1 - preserve LarrainVial, EPFL, Teapot, LLMs and other highlights
         if (bioParagraphs[0]) {
-            const epflText = t.bio.paragraph1.split('EPFL');
-            const teapotText = t.bio.paragraph1.split('Teapot');
-            const indEngText = t.bio.paragraph1.split('Industrial Engineering and Systems');
-            const mathEngText = t.bio.paragraph1.split('Mathematical & Computational Engineering');
-
             bioParagraphs[0].innerHTML = t.bio.paragraph1
+                .replace('LarrainVial Asset Management', '<span class="highlight">LarrainVial Asset Management</span>')
                 .replace('EPFL', '<span class="highlight">EPFL</span>')
                 .replace('Teapot', '<span class="highlight">Teapot</span>')
+                .replace(/\bLLM's\b|\bLLMs\b/g, (match) => `<span class="highlight">${match}</span>`)
                 .replace(/co-founder and Lead Data Scientist at Teapot|cofundador y Lead Data Scientist en Teapot|cofondateur et Lead Data Scientist chez Teapot/gi,
                     '<span class="highlight">' + (currentLang === 'en' ? 'co-founder and Lead Data Scientist at Teapot' : currentLang === 'es' ? 'cofundador y Lead Data Scientist en Teapot' : 'cofondateur et Lead Data Scientist chez Teapot') + '</span>')
                 .replace(/Industrial Engineering and Systems|Ingeniería Industrial y Sistemas|Ingénierie Industrielle et Systèmes/gi,
@@ -395,26 +376,12 @@ function updateBioPage(t) {
         // Paragraph 3 - preserve Rock climbing, water skiing, Club Andes ski team highlights
         if (bioParagraphs[2]) {
             bioParagraphs[2].innerHTML = t.bio.paragraph3
-                .replace(/Rock climbing|escalada/gi,
+                .replace(/Rock climbing|escalada|escalade/gi,
                     '<span class="highlight">' + (currentLang === 'en' ? 'Rock climbing' : currentLang === 'es' ? 'escalada' : 'escalade') + '</span>')
                 .replace(/water skiing|esquí acuático|ski nautique/gi,
                     '<span class="highlight">' + (currentLang === 'en' ? 'water skiing' : currentLang === 'es' ? 'esquí acuático' : 'ski nautique') + '</span>')
                 .replace(/Club Andes ski team at La Parva Center|equipo de esquí Club Andes en el centro La Parva|équipe de ski Club Andes au centre La Parva/g,
                     '<span class="highlight">' + (currentLang === 'en' ? 'Club Andes ski team at La Parva Center' : currentLang === 'es' ? 'equipo de esquí Club Andes en el centro La Parva' : 'équipe de ski Club Andes au centre La Parva') + '</span>');
-        }
-
-        // Paragraph 4 - preserve Music link and highlight
-        if (bioParagraphs[3]) {
-            bioParagraphs[3].innerHTML = t.bio.paragraph4
-                .replace(/Music/gi, '<span class="highlight"><a href="https://open.spotify.com/user/eugenio_cruz?si=bc484ce0f6f04fb2" target="_blank" style="color: var(--color-accent);">Music</a></span>')
-                .replace(/música/gi, '<span class="highlight"><a href="https://open.spotify.com/user/eugenio_cruz?si=bc484ce0f6f04fb2" target="_blank" style="color: var(--color-accent);">música</a></span>')
-                .replace(/musique/gi, '<span class="highlight"><a href="https://open.spotify.com/user/eugenio_cruz?si=bc484ce0f6f04fb2" target="_blank" style="color: var(--color-accent);">musique</a></span>');
-        }
-
-        // Paragraph 5 - preserve Hive highlight
-        if (bioParagraphs[4]) {
-            bioParagraphs[4].innerHTML = t.bio.paragraph5
-                .replace(/Hive/g, '<span class="highlight">Hive</span>');
         }
     }
 }
@@ -442,46 +409,30 @@ function updateNowPage(t) {
         const paragraphs = section.querySelectorAll('p');
         const ul = section.querySelector('ul');
 
-        if (index === 0) { // Research & Work
-            if (h2) h2.innerHTML = `<span class="section-icon">🔬</span>${t.now.researchWork}`;
+        if (index === 0) { // Work
+            if (h2) h2.innerHTML = `<span class="section-icon">💼</span>${t.now.work}`;
             if (paragraphs.length >= 2) {
-                // Preserve the Andrés Cristi link
-                const link = paragraphs[0].querySelector('a');
-                if (link) {
-                    paragraphs[0].innerHTML = `${t.now.researchWorkText1.split('Andrés Cristi')[0]}<a href="https://sites.google.com/view/andres-cristi" target="_blank" rel="noopener">Andrés Cristi</a>${t.now.researchWorkText1.split('Andrés Cristi')[1]}`;
-                }
-                paragraphs[1].textContent = t.now.researchWorkText2;
+                // Preserve the LarrainVial link
+                paragraphs[0].innerHTML = `${t.now.workText1.split('LarrainVial')[0]}<a href="https://www.larrainvial.com/" target="_blank" rel="noopener">LarrainVial</a>${t.now.workText1.split('LarrainVial')[1]}`;
+                // Preserve the Teapot link
+                paragraphs[1].innerHTML = `${t.now.workText2.split('Teapot')[0]}<a href="https://teapot.cl" target="_blank" rel="noopener">Teapot</a>${t.now.workText2.split('Teapot')[1]}`;
             }
-        } else if (index === 1) { // Learning & Reading
-            if (h2) h2.innerHTML = `<span class="section-icon">📚</span>${t.now.learning}`;
+        } else if (index === 1) { // Focus & Goals
+            if (h2) h2.innerHTML = `<span class="section-icon">🎯</span>${t.now.focus}`;
             if (ul) {
                 const items = ul.querySelectorAll('li');
                 if (items.length >= 3) {
-                    // Extract the text before and after the paper title
-                    const parts1 = t.now.learningItem1.split('The Power of Greedy for Online Minimum Cost Matching on the Line');
-                    items[0].innerHTML = `<strong>${t.now.learningItem1.split(':')[0]}:</strong> ${parts1[0].split(':')[1]} <a href="https://dl.acm.org/doi/10.1145/3580507.3597794" target="_blank" rel="noopener">The Power of Greedy for Online Minimum Cost Matching on the Line</a>`;
-
-                    items[1].innerHTML = `<strong>${t.now.learningItem2.split(':')[0]}:</strong> ${t.now.learningItem2.split(':')[1]}`;
-                    items[2].textContent = t.now.learningItem3;
+                    items[0].innerHTML = `<strong>${t.now.focusItem1.split(':')[0]}:</strong>${t.now.focusItem1.substring(t.now.focusItem1.indexOf(':') + 1)}`;
+                    items[1].innerHTML = `<strong>${t.now.focusItem2.split(':')[0]}:</strong>${t.now.focusItem2.substring(t.now.focusItem2.indexOf(':') + 1)}`;
+                    items[2].innerHTML = `<strong>${t.now.focusItem3.split(':')[0]}:</strong>${t.now.focusItem3.substring(t.now.focusItem3.indexOf(':') + 1)}`;
                 }
             }
-        } else if (index === 2) { // Currently Enjoying
-            if (h2) h2.innerHTML = `<span class="section-icon">🎮</span>${t.now.enjoying}`;
-            if (ul) {
-                const items = ul.querySelectorAll('li');
-                if (items.length >= 3) {
-                    items[0].innerHTML = `<strong>${t.now.enjoyingItem1.split(':')[0]}:</strong> ${t.now.enjoyingItem1.split(':')[1]}`;
-                    items[1].innerHTML = `<strong>${t.now.enjoyingItem2.split(':')[0]}:</strong> ${t.now.enjoyingItem2.split(':')[1]}`;
-                    // Preserve Spotify link
-                    const link3 = items[2].querySelector('a');
-                    if (link3) {
-                        items[2].innerHTML = `<strong>${t.now.enjoyingItem3.split(':')[0]}:</strong> ${t.now.enjoyingItem3.split(':')[1].split('Spotify')[0]} <a href="https://open.spotify.com/user/eugenio_cruz" target="_blank" rel="noopener">Spotify</a> ${t.now.enjoyingItem3.split('Spotify')[1] || ''}`;
-                    }
-                }
-            }
-        } else if (index === 3) { // Adventures
+        } else if (index === 2) { // Adventures
             if (h2) h2.innerHTML = `<span class="section-icon">⛰️</span>${t.now.adventures}`;
             if (paragraphs[0]) paragraphs[0].textContent = t.now.adventuresText;
+        } else if (index === 3) { // Home
+            if (h2) h2.innerHTML = `<span class="section-icon">❤️</span>${t.now.home}`;
+            if (paragraphs[0]) paragraphs[0].textContent = t.now.homeText;
         } else if (index === 4) { // Stats
             if (h2) h2.innerHTML = `<span class="section-icon">📈</span>${t.now.stats}`;
         }
@@ -489,10 +440,9 @@ function updateNowPage(t) {
 
     // Update stats labels (preserve the age span content)
     const statLabels = document.querySelectorAll('.stat-label');
-    if (statLabels.length >= 3) {
+    if (statLabels.length >= 2) {
         statLabels[0].textContent = t.now.countriesVisited;
-        statLabels[1].textContent = t.now.hiveGames;
-        statLabels[2].textContent = t.now.yearsOld;
+        statLabels[1].textContent = t.now.yearsOld;
     }
 
     // Always recalculate age after language change
