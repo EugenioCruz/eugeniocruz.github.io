@@ -2,7 +2,7 @@
 const translations = {
     en: {
         // Index page
-        tagline: "Quant Researcher at LarrainVial Asset Management<br>Co-founder & Lead Data Scientist at Teapot<br>MSc in Engineering Sciences from PUC Chile",
+        tagline: "Data Scientist: Quant Analyst at LarrainVial Asset Management<br>Co-founder & Lead Data Scientist at Teapot<br>MSc in Engineering Sciences from PUC Chile",
         aboutMe: "about me",
         interests: {
             algorithms: "Online Algorithms",
@@ -16,7 +16,7 @@ const translations = {
         },
         timeline: {
             title: "What I've been up to",
-            larrainvial: "Quant Researcher at LarrainVial Asset Management",
+            larrainvial: "Data Scientist: Quant Analyst at LarrainVial Asset Management",
             larrainvialDesc: "Building LLM-driven investment signals for the quantitative team",
             epfl: "Research at EPFL",
             epflDesc: "online algorithms for matching",
@@ -38,7 +38,7 @@ const translations = {
         bio: {
             title: "About",
             yearsOld: "years old, from Santiago, Chile",
-            paragraph1: "I'm a Chilean data scientist, recently back in Santiago after a research stay at EPFL in Switzerland, where I worked on online algorithms for matching problems. I'm now joining LarrainVial Asset Management as a quant researcher. My role is to use LLMs to find investment signals. In parallel, I'm co-founder and Lead Data Scientist at Teapot, where we build data-driven solutions for the education sector, optimizing and digitalizing learning through artificial intelligence. I hold a Master's degree in Engineering Sciences with a diploma in Industrial Engineering and Systems from Pontificia Universidad Católica de Chile. I also graduated summa cum laude from Mathematical & Computational Engineering, earning recognition as the best student of my specialty. My thesis focused on online algorithms with applications in pricing.",
+            paragraph1: "I'm a Chilean data scientist, recently back in Santiago after a research stay at EPFL in Switzerland, where I worked on online algorithms for matching problems. I'm now joining LarrainVial Asset Management as a data scientist: quant analyst. My role is to use LLMs to find investment signals. In parallel, I'm co-founder and Lead Data Scientist at Teapot, where we build data-driven solutions for the education sector, optimizing and digitalizing learning through artificial intelligence. I hold a Master's degree in Engineering Sciences with a diploma in Industrial Engineering and Systems from Pontificia Universidad Católica de Chile. I also graduated summa cum laude from Mathematical & Computational Engineering, earning recognition as the best student of my specialty. My thesis focused on online algorithms with applications in pricing.",
             paragraph2: "Mathematics has always been my true passion. I'm particularly focused on stochastic processes, optimization, and graph theory. I love working on applicable frameworks and the techniques used in these areas.",
             paragraph3: "I consider myself a very calm person who always tries to keep composure, even in challenging situations. Outside of work, I'm drawn to the outdoors, camping, and sports. Rock climbing has introduced me to incredible people who have made me very happy 💚. I grew up with a deep love for water skiing and it was my passion throughout my youth, and I even competed in Chile. I was also part of the Club Andes ski team at La Parva Center as a kid. Nowadays, snow skiing has become more of a family tradition that I cherish. I love animals and enjoy going camping whenever I get the chance to disconnect and be in nature with my friends."
         },
@@ -81,7 +81,7 @@ const translations = {
 
     es: {
         // Index page
-        tagline: "Quant Researcher en LarrainVial Asset Management<br>Cofundador y Lead Data Scientist en Teapot<br>Magíster en Ciencias de la Ingeniería PUC Chile",
+        tagline: "Data Scientist: Quant Analyst en LarrainVial Asset Management<br>Cofundador y Lead Data Scientist en Teapot<br>Magíster en Ciencias de la Ingeniería PUC Chile",
         aboutMe: "sobre mí",
         interests: {
             algorithms: "Algoritmos en Línea",
@@ -95,7 +95,7 @@ const translations = {
         },
         timeline: {
             title: "En qué he estado trabajando",
-            larrainvial: "Quant Researcher en LarrainVial Asset Management",
+            larrainvial: "Data Scientist: Quant Analyst en LarrainVial Asset Management",
             larrainvialDesc: "Construyendo señales de inversión con LLMs en el equipo cuantitativo",
             epfl: "Investigación en EPFL",
             epflDesc: "algoritmos en línea para matching",
@@ -117,7 +117,7 @@ const translations = {
         bio: {
             title: "Acerca de",
             yearsOld: "años, de Santiago, Chile",
-            paragraph1: "Soy un científico de datos chileno, recién de vuelta en Santiago tras una estadía de investigación en EPFL en Suiza, donde trabajé en algoritmos en línea para problemas de matching. Ahora me estoy integrando a LarrainVial Asset Management como quant researcher. Mi rol es usar LLM's para encontrar señales de inversión. En paralelo, soy cofundador y Lead Data Scientist en Teapot, donde construimos soluciones data-driven para el sector educativo, optimizando y digitalizando el aprendizaje mediante inteligencia artificial. Tengo un Magíster en Ciencias de la Ingeniería con diploma en Ingeniería Industrial y Sistemas de la Pontificia Universidad Católica de Chile. También me titulé con summa cum laude de Ingeniería Matemática y Computacional, obteniendo el reconocimiento como mejor estudiante de la especialidad. Mi tesis se enfocó en algoritmos en línea con aplicaciones en pricing.",
+            paragraph1: "Soy un científico de datos chileno, recién de vuelta en Santiago tras una estadía de investigación en EPFL en Suiza, donde trabajé en algoritmos en línea para problemas de matching. Ahora me estoy integrando a LarrainVial Asset Management como data scientist: quant analyst. Mi rol es usar LLM's para encontrar señales de inversión. En paralelo, soy cofundador y Lead Data Scientist en Teapot, donde construimos soluciones data-driven para el sector educativo, optimizando y digitalizando el aprendizaje mediante inteligencia artificial. Tengo un Magíster en Ciencias de la Ingeniería con diploma en Ingeniería Industrial y Sistemas de la Pontificia Universidad Católica de Chile. También me titulé con summa cum laude de Ingeniería Matemática y Computacional, obteniendo el reconocimiento como mejor estudiante de la especialidad. Mi tesis se enfocó en algoritmos en línea con aplicaciones en pricing.",
             paragraph2: "Las matemáticas siempre han sido mi verdadera pasión. Estoy particularmente enfocado en procesos estocásticos, optimización y teoría de grafos. Me encanta trabajar en marcos aplicables y las técnicas que se usan en estas áreas.",
             paragraph3: "Me considero una persona muy tranquila que siempre intenta mantener la compostura, incluso en situaciones desafiantes. Fuera del trabajo, me atrae el aire libre, el camping y el deporte. La escalada me ha presentado a personas increíbles que me han hecho muy feliz 💚. Crecí con un profundo amor por el esquí acuático y fue mi pasión durante mi juventud, e incluso competía en Chile. También fui parte del equipo de esquí Club Andes en el centro La Parva cuando era niño. Hoy en día, el esquí en nieve se ha convertido más en una tradición familiar que aprecio. Amo a los animales y disfruto ir de camping cada vez que tengo la oportunidad de desconectarme y estar en la naturaleza junto a mis amigos.",
         },
@@ -160,7 +160,7 @@ const translations = {
 
     fr: {
         // Index page
-        tagline: "Quant Researcher chez LarrainVial Asset Management<br>Co-fondateur & Lead Data Scientist chez Teapot<br>Master en Sciences de l'Ingénierie PUC Chile",
+        tagline: "Data Scientist: Quant Analyst chez LarrainVial Asset Management<br>Co-fondateur & Lead Data Scientist chez Teapot<br>Master en Sciences de l'Ingénierie PUC Chile",
         aboutMe: "à propos",
         interests: {
             algorithms: "Algorithmes en Ligne",
@@ -174,7 +174,7 @@ const translations = {
         },
         timeline: {
             title: "Ce sur quoi j'ai travaillé",
-            larrainvial: "Quant Researcher chez LarrainVial Asset Management",
+            larrainvial: "Data Scientist: Quant Analyst chez LarrainVial Asset Management",
             larrainvialDesc: "Construction de signaux d'investissement à base de LLMs pour l'équipe quantitative",
             epfl: "Recherche à l'EPFL",
             epflDesc: "algorithmes en ligne pour le matching",
@@ -196,7 +196,7 @@ const translations = {
         bio: {
             title: "À propos",
             yearsOld: "ans, de Santiago, Chili",
-            paragraph1: "Je suis un scientifique des données chilien, récemment de retour à Santiago après un séjour de recherche à l'EPFL en Suisse, où j'ai travaillé sur des algorithmes en ligne pour des problèmes de matching. Je rejoins maintenant LarrainVial Asset Management en tant que quant researcher. Mon rôle est d'utiliser des LLMs pour trouver des signaux d'investissement. En parallèle, je suis cofondateur et Lead Data Scientist chez Teapot, où nous construisons des solutions data-driven pour le secteur de l'éducation, optimisant et digitalisant l'apprentissage grâce à l'intelligence artificielle. Je détiens un Master en Sciences de l'Ingénierie avec un diplôme en Ingénierie Industrielle et Systèmes de l'Université Catholique du Chili. J'ai également obtenu mon diplôme summa cum laude en Ingénierie Mathématique et Computationnelle, obtenant la reconnaissance du meilleur étudiant de ma spécialité. Ma thèse portait sur les algorithmes en ligne avec des applications en pricing.",
+            paragraph1: "Je suis un scientifique des données chilien, récemment de retour à Santiago après un séjour de recherche à l'EPFL en Suisse, où j'ai travaillé sur des algorithmes en ligne pour des problèmes de matching. Je rejoins maintenant LarrainVial Asset Management en tant que data scientist: quant analyst. Mon rôle est d'utiliser des LLMs pour trouver des signaux d'investissement. En parallèle, je suis cofondateur et Lead Data Scientist chez Teapot, où nous construisons des solutions data-driven pour le secteur de l'éducation, optimisant et digitalisant l'apprentissage grâce à l'intelligence artificielle. Je détiens un Master en Sciences de l'Ingénierie avec un diplôme en Ingénierie Industrielle et Systèmes de l'Université Catholique du Chili. J'ai également obtenu mon diplôme summa cum laude en Ingénierie Mathématique et Computationnelle, obtenant la reconnaissance du meilleur étudiant de ma spécialité. Ma thèse portait sur les algorithmes en ligne avec des applications en pricing.",
             paragraph2: "Les mathématiques ont toujours été ma véritable passion. Je suis particulièrement concentré sur les processus stochastiques, l'optimisation et la théorie des graphes. J'aime travailler sur des cadres applicables et les techniques utilisées dans ces domaines.",
             paragraph3: "Je me considère comme une personne très calme qui essaie toujours de garder son sang-froid, même dans des situations difficiles. En dehors du travail, je suis attiré par l'extérieur, le camping et le sport. L'escalade m'a présenté à des gens incroyables qui m'ont rendu très heureux 💚. J'ai grandi avec un amour profond pour le ski nautique et c'était ma passion tout au long de ma jeunesse, et j'ai même participé à des compétitions au Chili. J'ai également fait partie de l'équipe de ski Club Andes au centre La Parva quand j'étais enfant. De nos jours, le ski sur neige est devenu plus une tradition familiale que je chéris. J'aime les animaux et j'apprécie de faire du camping chaque fois que j'ai la chance de me déconnecter et d'être dans la nature avec mes amis."
         },
